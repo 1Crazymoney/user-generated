@@ -1,0 +1,329 @@
+﻿<!doctype html>
+<html>
+<head>
+	<!--
+	Notice of Copyrights and Licenses:
+	***********************************
+
+
+	###### bitcoincashnotes.com (Global Notes Pty Ltd) user generated Bitcoin Cash Notes ######
+	
+    This software is for the production of user generated Bitcoin Cash Notes.
+
+	This software is based on code from cashaddress.org. The cashaddress.org project can be found at:
+	https://github.com/bccaddress/bitaddress.org. Licenses related to the cashaddress.org project are 
+	detailed below under the heading "cashaddress.org".
+
+	All original code in this software (code not forked from cashaddress.org) is subject to
+	Copyright (c) Global Notes Pty Ltd 2020.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+	LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+	WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+    ###### cashaddress.org ######
+
+	The cashaddress.org project, software and embedded resources are copyright cashaddress.org.
+	The bitaddress.org project, software and embedded resources are copyright bitaddress.org (pointbiz).
+	The green Bitcoin Cash logo and the Bitcoin Cash logo are copyleft.
+
+	Portions of the all-in-one HTML document contain JavaScript codes that are the copyrights of others. 
+	The individual copyrights are included throughout the document along with their licenses.
+	Included JavaScript libraries are separated with HTML script tags.
+
+	Summary of JavaScript functions with a redistributable license:
+	JavaScript function		License
+	*******************		***************
+	window.Crypto			BSD License
+	window.SecureRandom		BSD License
+	window.EllipticCurve		BSD License
+	window.BigInteger		BSD License
+	window.QRCode			MIT License
+	window.Bitcoin			MIT License
+	window.Crypto_scrypt		MIT License
+
+	The cashaddress.org software is available under The MIT License (MIT)
+	Copyright (c) 2017 cashaddress.org
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, including 
+	without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject 
+	to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial 
+	portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+	LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+	WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+	GitHub Repository: https://github.com/theantnest/bccaddress
+	-->
+
+	<title>bitcoincashnotes.com | user generated Bitcoin Cash Notes</title>
+	<meta charset="utf-8">
+
+	<script type="text/javascript">
+//bchaddr.js	
+	</script>
+	<script type="text/javascript">
+//cryptojs.js	
+	</script>
+	<script type="text/javascript">
+//cryptojs.sha256.js	
+	</script>
+	<script type="text/javascript">
+//cryptojs.pbkdf2.js 
+	</script>
+	<script type="text/javascript">
+//cryptojs.hmac.js
+	</script>
+	<script type="text/javascript">
+//cryptojs.aes.js
+	</script>
+	<script type="text/javascript">
+//cryptojs.blockmodes.js
+	</script>
+	<script type="text/javascript">
+//cryptojs.ripemd160.js
+	</script>
+	<script type="text/javascript">
+//securerandom.js
+	</script>
+	<script type="text/javascript">
+//ellipticcurve.js
+	</script>
+	<script type="text/javascript">
+//secrets.js
+	</script>
+	<script type="text/javascript">
+//biginteger.js
+	</script>
+	<script type="text/javascript">
+//qrcode.js
+	</script>
+	<script type="text/javascript">
+//bitcoinjs-lib.js
+	</script>
+	<script type="text/javascript">
+//bitcoinjs-lib.base58.js
+	</script>
+	<script type="text/javascript">
+//bitcoinjs-lib.address.js
+	</script>
+	<script type="text/javascript">
+//bitcoinjs-lib.ecdsa.js
+	</script>
+	<script type="text/javascript">
+//bitcoinjs-lib.eckey.js
+	</script>
+	<script type="text/javascript">
+//bitcoinjs-lib.util.js
+	</script>
+	<script type="text/javascript">
+//crypto-scrypt.js
+	</script>
+	<style type="text/css">
+//main.css
+	</style>
+</head>
+<body onclick="SecureRandom.seedTime();" onmousemove="ninja.seeder.seed(event);">
+	<div id="busyblock"></div>
+	<div id="main">
+		<div id="culturemenu">
+            <div class="culturemenurow">
+                <span><a href="?culture=en" id="cultureen" class="selected" onclick="ninja.translator.translate('en'); return false;">English</a></span> |
+                <span><a href="?culture=es" id="culturees" onclick="ninja.translator.translate('es'); return false;">Español</a></span> |
+                <span><a href="?culture=fr" id="culturefr" onclick="ninja.translator.translate('fr'); return false;">Français</a></span> |
+                <span><a href="?culture=el" id="cultureel" onclick="ninja.translator.translate('el'); return false;">ελληνικά</a></span> |
+                <span><a href="?culture=it" id="cultureit" onclick="ninja.translator.translate('it'); return false;">italiano</a></span> |
+                <span><a href="?culture=de" id="culturede" onclick="ninja.translator.translate('de'); return false;">Deutsch</a></span>
+            </div>
+            <div class="culturemenurow">
+                <span><a href="?culture=cs" id="culturecs" onclick="ninja.translator.translate('cs'); return false;">Česky</a></span> |
+                <span><a href="?culture=hu" id="culturehu" onclick="ninja.translator.translate('hu'); return false;">Magyar</a></span> |
+                <span><a href="?culture=jp" id="culturejp" onclick="ninja.translator.translate('jp'); return false;">日本語</a></span> |
+                <span><a href="?culture=zh-cn" id="culturezh-cn" onclick="ninja.translator.translate('zh-cn'); return false;">简体中文</a></span> |
+                <span><a href="?culture=ru" id="cultureru" onclick="ninja.translator.translate('ru'); return false;">Русский</a></span> |
+                <span><a href="?culture=pt-br" id="culturept-br" onclick="ninja.translator.translate('pt-br'); return false;">português</a></span>
+            </div>
+		</div>
+		<div id="seedpoolarea"><textarea rows="16" cols="62" id="seedpool"></textarea></div>
+		<div id="testnet"></div>
+		<div id="numberToGenerate">
+			<span><label id="paperlabeladdressestogenerate" for="paperlimit">How many paper wallets would you like to generate?</label> <input type="number" id="paperlimit" value="1" min="1" max="100" /></span>
+			<span><input type="button" id="papergenerate" value="Generate" onclick="ninja.seeder.setInitialised();" /></span>
+		</div>
+		<div id="generate">
+			<span id="generatelabelbitcoinaddress">Generating Bitcoin Cash Address.</span><br />
+			<span id="generatelabelmovemouse">MOVE your mouse around to generate randomness.</span><br />
+			<span id="generatelabelkeypress">OR type random characters into this textbox</span> <input type="text" id="generatekeyinput" onkeydown="ninja.seeder.seedKeyPress(event);" /><br />
+			<span id="mousemovelimit"></span><span>complete</span>
+			<div id="seedpooldisplay"></div>
+		</div>
+		<div id="wallets">
+			<div id="paperarea">
+				<div class="commands">
+					<div id="papercommands" class="row">
+						<div class="commandoption"><label>Language:</label> <select id="paperwalletlanguage" onchange="ninja.wallets.paperwallet.changeLanguage();">
+							<option value="english">English</option>
+							<option value="spanish">Spanish</option></select>
+						</div>
+						<div class="commandoption"><label>Denomination:</label> <select id="paperwalletdenomination" onchange="ninja.wallets.paperwallet.changeDenomination();">
+							<option value="1mbch">1 mBCH</option>
+							<option value="2mbch">2 mBCH</option>
+							<option value="5mbch">5 mBCH</option>
+							<option value="10mbch">10 mBCH</option>
+							<option value="20mbch">20 mBCH</option>
+							<option value="50mbch">50 mBCH</option>
+							<option value="100mbch">100 mBCH</option></select>
+						</div>
+						<div class="commandoption"><label>Color:</label> <select id="paperwalletcolor" onchange="ninja.wallets.paperwallet.changeColor();">
+							<option value="Orange">Orange</option>
+							<option value="Green">Green</option>
+							<option value="Red">Red</option>
+							<option value="Black">Black</option>
+							<option value="Blue">Blue</option>
+							<option value="Gold">Gold</option></select>
+						</div>
+						<span class="print"><input type="button" name="print" value="Print" id="paperprint" onclick="window.print();" /></span>
+						<span class="publicaddresses"><input type="button" name="publicaddresses" value="Public addresses" id="publicaddresses" onclick="ninja.wallets.paperwallet.downloadAddressesCsv();" /></span>
+						<div class="help-tip for-publicaddresses"><p>Download a csv of all of the below generated public addresses. The csv can be conveniently used in Electron Cash (Desktop) for bulk sending BCH to these addresses.</p></div>
+						<span class="resetoptions"><input type="button" name="resetoptions" value="Reset options" id="resetoptions" onclick="ninja.wallets.paperwallet.resetOptions();" /></span>
+						<div class="commandoption"><label id="faceimage" for="faceimagebutton">Face image:</label> <input type="file" name="faceimagebutton" value="Select image" id="faceimagebutton" onchange="ninja.wallets.paperwallet.inputNewFace(this);" /></div>
+						<div class="help-tip for-faceimage"><p>For the best results, use a .png image with a transparent background. Ideal dimensions are: width 190px, height 153px.</p></div>
+					</div>
+				</div>
+				<div id="paperkeyarea"></div>
+			</div>
+		</div>
+		<div id="footer" class="footer">
+			<div class="tooltips">
+				<div class="tooltip" id="statuscryptogood">
+					<span class="statusgood" id="statuslabelcryptogood">&#10004; Good!</span>
+					<span id="statuslabelcryptogood1">Your browser can generate cryptographically random keys using window.crypto.getRandomValues</span>
+					<br /><br /><input type="button" value="OK" class="button" id="statusokcryptogood" onclick="document.getElementById('statuscryptogood').style.display = 'none';" />
+				</div>
+				<div class="tooltip" id="statuscryptobad">
+					<span class="statusbad" id="statuslabelcryptobad">&times; Oh no!</span>
+					<span id="statuslabelcryptobad1">Your browser does NOT support window.crypto.getRandomValues. You should use a more modern browser with this generator to increase the security of the keys generated.</span>
+					<br /><br /><input type="button" value="OK" class="button" id="statusokcryptobad" onclick="document.getElementById('statuscryptobad').style.display = 'none';" />
+				</div>
+				<div class="tooltip" id="statusunittestsgood">
+					<span class="statusgood" id="statuslabelunittestsgood">&#10004; Good!</span>
+					<span id="statuslabelunittestsgood1">All synchronous unit tests passed.</span>
+					<br /><br /><input type="button" value="OK" class="button" id="statusokunittestsgood" onclick="document.getElementById('statusunittestsgood').style.display = 'none';" />
+				</div>
+				<div class="tooltip" id="statusunittestsbad">
+					<span class="statusbad" id="statuslabelunittestsbad">&times; Oh no!</span>
+					<span id="statuslabelunittestsbad1">Some synchronous unit tests DID NOT pass. You should find another browser to use with this generator.</span>
+					<br /><br /><input type="button" value="OK" class="button" id="statusokunittestsbad" onclick="document.getElementById('statusunittestsbad').style.display = 'none';" />
+				</div>
+				<div class="tooltip" id="statusprotocolgood">
+					<span class="statusgood" id="statuslabelprotocolgood">&#10004; Good!</span>
+					<span id="statuslabelprotocolgood1">You are running this generator from your local computer. <br />Tip: Double check you are offline by trying </span>
+					<a href="http://www.google.com" target="_blank">www.google.com</a>
+					<br /><br /><input type="button" value="OK" class="button" id="statusokprotocolgood" onclick="document.getElementById('statusprotocolgood').style.display = 'none';" />
+				</div>
+				<div class="tooltip" id="statusprotocolbad">
+					<span class="statuswarn" id="statuslabelprotocolbad">&#9888; Think twice!</span>
+					<span id="statuslabelprotocolbad1">You appear to be running this generator online from a live website. For valuable wallets it is recommended you clone </span>
+					<a id="statuslabelprotocolbad2" href="https://github.com/bitcoincashnotes/user-generated">https://github.com/bitcoincashnotes/user-generated</a>
+					<span id="statuslabelprotocolbad3"> and run this generator offline as a local html file.</span>
+					<br /><br /><input type="button" value="OK" class="button" id="statusokprotocolbad" onclick="document.getElementById('statusprotocolbad').style.display = 'none';" />
+				</div>
+				<div class="tooltip" id="statuskeypoolgood">
+					<span id="statuslabelkeypool1">This is a log of all the Bitcoin Cash Addresses and Private Keys you generated during your current session. Reloading the page will create a new session.</span>
+					<textarea rows="20" cols="72" id="keypooltextarea"></textarea>
+					
+					<br /><br />
+					<input type="button" value="Refresh" class="button" id="statuskeypoolrefresh" onclick="ninja.status.showKeyPool();" />
+					<input type="button" value="OK" class="button" id="statusokkeypool" onclick="document.getElementById('statuskeypoolgood').style.display = 'none';" />
+				</div>
+			</div>
+			<div class="authorbtc">
+				<div>
+					<span class="item">
+						<span class="statusicon" id="statusprotocol" onclick="ninja.status.showProtocol();">...</span>
+						<span class="statusicon" id="statuscrypto" onclick="ninja.status.showCrypto();">...</span>
+						<span class="statusicon" id="statusunittests" onclick="ninja.status.showUnitTests();">...</span>
+						<span class="statusicon" id="statuskeypool" onclick="ninja.status.showKeyPool();">&#8803;</span>
+					</span>
+					<span class="item" id="footerlabeltranslatedby"></span>
+				</div>
+			</div>
+			<div class="github">
+				<span class="item"><a href="https://github.com/bitcoincashnotes/user-generated" target="_blank" id="footerlabelgithub1">Source Code</a></span>
+			</div>
+			<div class="copyright">
+				<span id="footerlabelcopyright">All copyrights are included in the source code.</span><br />
+				<span id="footerlabelnowarranty">This software is provided "AS IS", without no warranty of any kind.</span><br />
+				<span id="footerlabelnowarranty2">Please see <a href="https://bitcoincashnotes.com/terms-and-conditions">terms and conditions</a> ("User generated notes" subheading) for more detail.</span><br />
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+//ninja.key.js
+	</script>
+	<script type="text/javascript">
+//ninja.seeder.js
+	</script>
+	<script type="text/javascript">
+ //ninja.qrcode.js
+	</script>
+	<script type="text/javascript">
+//ninja.misc.js
+	</script>
+	<script type="text/javascript">
+//ninja.images.js
+	</script>
+	<script type="text/javascript">
+//ninja.imagesdenominations.js
+	</script>
+	<script type="text/javascript">
+//ninja.translator.js
+//cs.js
+//de.js
+//el.js
+//es.js
+//fr.js
+//hu.js
+//it.js
+//jp.js
+//pt-br.js
+//ru.js
+//zh-cn.js
+	</script>
+	<script type="text/javascript">
+//ninja.singlewallet.js
+	</script>
+	<script type="text/javascript">
+//ninja.paperwallet.js
+	</script>
+	<script type="text/javascript">
+//ninja.bulkwallet.js
+	</script>
+	<script type="text/javascript">
+//ninja.vanitywallet.js
+	</script>
+	<script type="text/javascript">
+//ninja.detailwallet.js
+	</script>
+	<script type="text/javascript">
+//ninja.splitwallet.js
+	</script>
+	<script type="text/javascript">
+//ninja.unittests.js
+	</script>
+	<script type="text/javascript">
+//ninja.onload.js
+	</script>
+</body>
+</html>
