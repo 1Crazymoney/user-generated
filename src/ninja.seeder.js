@@ -1,6 +1,6 @@
 ﻿ninja.seeder = {
 	init: (function () {
-		document.getElementById("generatekeyinput").value = "";
+		document.getElementById("usergenbcn-generatekeyinput").value = "";
 	})(),
 
 	// number of mouse movements to wait for
@@ -11,12 +11,12 @@
 
 	initialized: false,
 	setInitialised: function () {
-		if (document.getElementById("paperlimit").value > 100) {
+		if (document.getElementById("usergenbcn-paperlimit").value > 100) {
 			window.alert("Maximum of 100 paper wallets");
 			return;
 		}
-		document.getElementById("numberToGenerate").style.display = "none";
-		document.getElementById("generate").style.display = "block";
+		document.getElementById("usergenbcn-numberToGenerate").style.display = "none";
+		document.getElementById("usergenbcn-generate").style.display = "block";
 		ninja.seeder.initialized = true;
 	},
 
@@ -73,16 +73,16 @@
 		var poolHex;
 		if (SecureRandom.poolCopyOnInit != null) {
 			poolHex = Crypto.util.bytesToHex(SecureRandom.poolCopyOnInit);
-			document.getElementById("seedpool").innerHTML = poolHex;
-			document.getElementById("seedpooldisplay").innerHTML = poolHex;
+			document.getElementById("usergenbcn-seedpool").innerHTML = poolHex;
+			document.getElementById("usergenbcn-seedpooldisplay").innerHTML = poolHex;
 		}
 		else {
 			poolHex = Crypto.util.bytesToHex(SecureRandom.pool);
-			document.getElementById("seedpool").innerHTML = poolHex;
-			document.getElementById("seedpooldisplay").innerHTML = poolHex;
+			document.getElementById("usergenbcn-seedpool").innerHTML = poolHex;
+			document.getElementById("usergenbcn-seedpooldisplay").innerHTML = poolHex;
 		}
 		var percentSeeded = Math.round((ninja.seeder.seedCount / ninja.seeder.seedLimit) * 100) + "%";
-		document.getElementById("mousemovelimit").innerHTML = percentSeeded;
+		document.getElementById("usergenbcn-mousemovelimit").innerHTML = percentSeeded;
 	},
 
 	showPoint: function (x, y) {
@@ -106,7 +106,7 @@
 		// run sync unit tests
 		ninja.status.unitTests();
 		// open paperwallet section
-		document.getElementById("generate").style.display = "none";
+		document.getElementById("usergenbcn-generate").style.display = "none";
 		ninja.wallets["paperwallet"].open();
 		// update labels for dependent wallets
 		culture = ninja.translator.currentCulture;

@@ -1,14 +1,14 @@
 ninja.wallets.paperwallet = {
 	isOpen: function () {
-		return (document.getElementById("paperwallet").className.indexOf("selected") != -1);
+		return (document.getElementById("usergenbcn-paperwallet").className.indexOf("selected") != -1);
 	},
 
 	open: function () {
-		document.getElementById("main").setAttribute("class", "paper"); // add 'paper' class to main div
-		var paperArea = document.getElementById("paperarea");
+		document.getElementById("usergenbcn-main").setAttribute("class", "paper"); // add 'paper' class to main div
+		var paperArea = document.getElementById("usergenbcn-paperarea");
 		paperArea.style.display = "block";
 		var perPageLimitElement = 1;
-		var limitElement = document.getElementById("paperlimit");
+		var limitElement = document.getElementById("usergenbcn-paperlimit");
 		var pageBreakAt = (ninja.wallets.paperwallet.useArtisticWallet) ? ninja.wallets.paperwallet.pageBreakAtArtisticDefault : ninja.wallets.paperwallet.pageBreakAtDefault;
 		if (perPageLimitElement && perPageLimitElement.value < 1) {
 			perPageLimitElement.value = pageBreakAt;
@@ -16,15 +16,15 @@ ninja.wallets.paperwallet = {
 		if (limitElement && limitElement.value < 1) {
 			limitElement.value = pageBreakAt;
 		}
-		if (document.getElementById("paperkeyarea").innerHTML == "") {
+		if (document.getElementById("usergenbcn-paperkeyarea").innerHTML == "") {
 			ninja.wallets.paperwallet.encrypt = false;
 			ninja.wallets.paperwallet.build(limitElement.value, pageBreakAt, true, '');
 		}
 	},
 
 	close: function () {
-		document.getElementById("paperarea").style.display = "none";
-		document.getElementById("main").setAttribute("class", ""); // remove 'paper' class from main div
+		document.getElementById("usergenbcn-paperarea").style.display = "none";
+		document.getElementById("usergenbcn-main").setAttribute("class", ""); // remove 'paper' class from main div
 	},
 
 	remaining: null, // use to keep track of how many addresses are left to process when building the paper wallet
@@ -43,16 +43,16 @@ ninja.wallets.paperwallet = {
 		ninja.wallets.paperwallet.count = 0;
 		ninja.wallets.paperwallet.useArtisticWallet = useArtisticWallet;
 		ninja.wallets.paperwallet.pageBreakAt = pageBreakAt;
-		document.getElementById("paperkeyarea").innerHTML = "";
+		document.getElementById("usergenbcn-paperkeyarea").innerHTML = "";
 		if (ninja.wallets.paperwallet.encrypt) {
 			if (passphrase == "") {
 				alert(ninja.translator.get("bip38alertpassphraserequired"));
 				return;
 			}
-			document.getElementById("busyblock").className = "busy";
+			document.getElementById("usergenbcn-busyblock").className = "busy";
 			ninja.privateKey.BIP38GenerateIntermediatePointAsync(passphrase, null, null, function (intermediate) {
 				ninja.wallets.paperwallet.intermediatePoint = intermediate;
-				document.getElementById("busyblock").className = "";
+				document.getElementById("usergenbcn-busyblock").className = "";
 				setTimeout(ninja.wallets.paperwallet.batch, 0);
 			});
 		}
@@ -63,13 +63,13 @@ ninja.wallets.paperwallet = {
 
 	batch: function () {
 		if (ninja.wallets.paperwallet.remaining > 0) {
-			var paperArea = document.getElementById("paperkeyarea");
+			var paperArea = document.getElementById("usergenbcn-paperkeyarea");
 			var template = 'default';
 			ninja.wallets.paperwallet.count++;
 			var i = ninja.wallets.paperwallet.count;
 			var pageBreakAt = ninja.wallets.paperwallet.pageBreakAt;
 			var div = document.createElement("div");
-			div.setAttribute("id", "keyarea" + i);
+			div.setAttribute("id", "usergenbcn-keyarea" + i);
 			div.innerHTML = ninja.wallets.paperwallet.templateArtisticHtml(i, template);
 			div.setAttribute("class", "keyarea art");
 
@@ -79,13 +79,13 @@ ninja.wallets.paperwallet = {
 					var pBreak = document.createElement("div");
 					pBreak.style.pageBreakBefore = "always";
 					pBreak.setAttribute("class", "pagebreak");
-					document.getElementById("paperkeyarea").appendChild(pBreak);
+					document.getElementById("usergenbcn-paperkeyarea").appendChild(pBreak);
 					if (!ninja.wallets.paperwallet.useArtisticWallet) {
 						div.style.borderTop = "2px solid green";
 					}
 				}
 			}
-			document.getElementById("paperkeyarea").appendChild(div);
+			document.getElementById("usergenbcn-paperkeyarea").appendChild(div);
 			ninja.wallets.paperwallet.resetOptions();
 			ninja.wallets.paperwallet.generateNewWallet(i);
 			ninja.wallets.paperwallet.remaining--;
@@ -125,8 +125,8 @@ ninja.wallets.paperwallet = {
 	},
 
 	downloadAddressesCsv: function () {
-		document.getElementById("publicaddresses").disabled = true;
-		setTimeout(function(){document.getElementById("publicaddresses").disabled = false;},5000);
+		document.getElementById("usergenbcn-publicaddresses").disabled = true;
+		setTimeout(function(){document.getElementById("usergenbcn-publicaddresses").disabled = false;},5000);
 		var BCHAmount = ninja.wallets.paperwallet.currentMilli / 1000;
 		var text = ninja.wallets.paperwallet.BCHAddresses.map(function (element) {
 			return element + "," + BCHAmount;
@@ -147,61 +147,62 @@ ninja.wallets.paperwallet = {
 	},
 
 	showWallet: function (idPostFix, bitcoinAddress, privateKey) {
-		document.getElementById("btcaddress" + idPostFix).innerHTML = bitcoinAddress;
-		document.getElementById("btcprivwif" + idPostFix).innerHTML = privateKey;
+		document.getElementById("usergenbcn-btcaddress" + idPostFix).innerHTML = bitcoinAddress;
+		document.getElementById("usergenbcn-btcprivwif" + idPostFix).innerHTML = privateKey;
 		var keyValuePair = {};
-		keyValuePair["qrcode_public" + idPostFix] = bitcoinAddress;
-		keyValuePair["qrcode_private" + idPostFix] = privateKey;
+		keyValuePair["usergenbcn-qrcode_public" + idPostFix] = bitcoinAddress;
+		keyValuePair["usergenbcn-qrcode_private" + idPostFix] = privateKey;
 		ninja.qrCode.showQrCode(keyValuePair);
-		document.getElementById("keyarea" + idPostFix).style.display = "block";
+		document.getElementById("usergenbcn-keyarea" + idPostFix).style.display = "block";
 	},
 
 	templateArtisticHtml: function (i, template) {
 		var image = ninja.images.paperwalletimages()['default']['standard'];
 
 		var walletHtml =
-			"<div class='artwallet' id='artwallet" + i + "'>" +
-			"<img id='papersvg" + i + "' class='papersvg' src='" + image + "' />" +
+			"<div class='artwallet' id='usergenbcn-artwallet" + i + "'>" +
+			"<img id='usergenbcn-papersvg" + i + "' class='papersvg' src='" + image + "' />" +
 			
 			// Front Elements
-			"<div id='qrcode_public" + i + "' class='qrcode_public'></div>" +
-			"<div id='qrcode_private-" + i + "' class='qrcode_private'></div>" +
-			"<div class='copyright' id='copyright-" + i + "'><span class='copy-symbol'>©</span> Global Notes Pty Ltd</div>" +
-			"<div class='btcaddress first' id='btcaddress-first-" + i + "'></div>" +
-			"<div class='btcaddress second' id='btcaddress-second-" + i + "'></div>" +
-			"<div class='btcaddress-last4' id='btcaddress-last4-" + i + "'></div>" +
-			"<div class='header-text warning' id='warning-text-" + i + "'></div>" +
-			"<div class='header-text learn' id='learn-text-" + i + "'></div>" +
-			"<div class='header-text revolution' id='revolution-text-" + i + "'></div>" +
-			"<img id='bitcoincashlogo" + i + "' class='bitcoincashlogo' src='' />" +
-			"<div class='logo-text' id='logo-text-" + i + "'></div>" +
-			"<div class='paperface'><img id='paperface" + i + "' class='paperfaceimage' src='' /></div>" +
-			"<img id='numberedDenominationFrontFirst" + i + "' class='numberedDenominationFrontFirst' src='' />" +
-			"<img id='numberedDenominationFrontSecond" + i + "' class='numberedDenominationFrontSecond' src='' />" +
-			"<img id='colouredNumberedDenominationFrontFirst" + i + "' class='colouredNumberedDenominationFrontFirst' src='' />" +
-			"<img id='colouredNumberedDenominationFrontSecond" + i + "' class='colouredNumberedDenominationFrontSecond' src='' />" +
-			"<img id='wordedDenominationFront" + i + "' class='wordedDenominationFront' src='' />" +
-			"<img id='milliBitcoinCashFront" + i + "' class='milliBitcoinCashFront' src='' />" +
+			"<div id='usergenbcn-qrcode_public" + i + "' class='qrcode_public'></div>" +
+			"<div id='usergenbcn-qrcode_private-" + i + "' class='qrcode_private'></div>" +
+			"<div class='copyright' id='usergenbcn-copyright-" + i + "'><span class='copy-symbol'>©</span> Global Notes Pty Ltd</div>" +
+			"<div class='btcaddress first' id='usergenbcn-btcaddress-first-" + i + "'></div>" +
+			"<div class='btcaddress second' id='usergenbcn-btcaddress-second-" + i + "'></div>" +
+			"<div class='btcaddress-last4' id='usergenbcn-btcaddress-last4-" + i + "'></div>" +
+			"<div class='header-text warning' id='usergenbcn-warning-text-" + i + "'></div>" +
+			"<div class='header-text learn' id='usergenbcn-learn-text-" + i + "'></div>" +
+			"<div class='header-text revolution' id='usergenbcn-revolution-text-" + i + "'></div>" +
+			"<div class='qrprivate-top-text' id='usergenbcn-qrprivate-top-text-" + i + "'></div>" +
+			"<img id='usergenbcn-bitcoincashlogo" + i + "' class='bitcoincashlogo' src='' />" +
+			"<div class='logo-text' id='usergenbcn-logo-text-" + i + "'></div>" +
+			"<div class='paperface'><img id='usergenbcn-paperface" + i + "' class='paperfaceimage' src='' /></div>" +
+			"<img id='usergenbcn-numberedDenominationFrontFirst" + i + "' class='numberedDenominationFrontFirst' src='' />" +
+			"<img id='usergenbcn-numberedDenominationFrontSecond" + i + "' class='numberedDenominationFrontSecond' src='' />" +
+			"<img id='usergenbcn-colouredNumberedDenominationFrontFirst" + i + "' class='colouredNumberedDenominationFrontFirst' src='' />" +
+			"<img id='usergenbcn-colouredNumberedDenominationFrontSecond" + i + "' class='colouredNumberedDenominationFrontSecond' src='' />" +
+			"<img id='usergenbcn-wordedDenominationFront" + i + "' class='wordedDenominationFront' src='' />" +
+			"<img id='usergenbcn-milliBitcoinCashFront" + i + "' class='milliBitcoinCashFront' src='' />" +
 
 			// Back Elements
-			"<img class='back-color' id='back-color" + i + "' src='' />" +
-			"<img id='bitcoincashback" + i + "' class='bitcoincashback' src='' />" +
-			"<img id='crypto-trust-" + i + "' class='crypto-trust' src='' />" +
-			"<div class='private-key-cover-text private-key' id='private-key-text-" + i + "'></div>" +
-			"<div class='private-key-cover-text underneath' id='underneath-text-" + i + "'></div>" +
-			"<div class='private-key-cover-text keep' id='keep-text-" + i + "'></div>" +
-			"<div class='private-key-cover-text secret' id='secret-text-" + i + "'></div>" +
-			"<div class='open-here' id='open-here-" + i + "'></div>" +
-			"<div class='btcprivwif first' id='btcprivwif-first-" + i + "'></div>" +
-			"<div class='btcprivwif second' id='btcprivwif-second-" + i + "'></div>" +
-			"<div class='btcprivwif third' id='btcprivwif-third-" + i + "'></div>" +
-			"<div class='btcprivwif fourth' id='btcprivwif-fourth-" + i + "'></div>" +
-			"<div class='btcprivwif fifth' id='btcprivwif-fifth-" + i + "'></div>" +
-			"<div class='btcprivwif sixth' id='btcprivwif-sixth-" + i + "'></div>" +
-			"<img id='numberedDenominationBackFirst" + i + "' class='numberedDenominationBackFirst' src='' />" +
-			"<img id='numberedDenominationBackSecond" + i + "' class='numberedDenominationBackSecond' src='' />" +
-			"<img id='wordedDenominationBack" + i + "' class='wordedDenominationBack' src='' />" +
-			"<img id='milliBitcoinCashBack" + i + "' class='milliBitcoinCashBack' src='' />" +
+			"<img class='back-color' id='usergenbcn-back-color" + i + "' src='' />" +
+			"<img id='usergenbcn-bitcoincashback" + i + "' class='bitcoincashback' src='' />" +
+			"<img id='usergenbcn-crypto-trust-" + i + "' class='crypto-trust' src='' />" +
+			"<div class='private-key-cover-text private-key' id='usergenbcn-private-key-text-" + i + "'></div>" +
+			"<div class='private-key-cover-text underneath' id='usergenbcn-underneath-text-" + i + "'></div>" +
+			"<div class='private-key-cover-text keep' id='usergenbcn-keep-text-" + i + "'></div>" +
+			"<div class='private-key-cover-text secret' id='usergenbcn-secret-text-" + i + "'></div>" +
+			"<div class='open-here' id='usergenbcn-open-here-" + i + "'></div>" +
+			"<div class='btcprivwif first' id='usergenbcn-btcprivwif-first-" + i + "'></div>" +
+			"<div class='btcprivwif second' id='usergenbcn-btcprivwif-second-" + i + "'></div>" +
+			"<div class='btcprivwif third' id='usergenbcn-btcprivwif-third-" + i + "'></div>" +
+			"<div class='btcprivwif fourth' id='usergenbcn-btcprivwif-fourth-" + i + "'></div>" +
+			"<div class='btcprivwif fifth' id='usergenbcn-btcprivwif-fifth-" + i + "'></div>" +
+			"<div class='btcprivwif sixth' id='usergenbcn-btcprivwif-sixth-" + i + "'></div>" +
+			"<img id='usergenbcn-numberedDenominationBackFirst" + i + "' class='numberedDenominationBackFirst' src='' />" +
+			"<img id='usergenbcn-numberedDenominationBackSecond" + i + "' class='numberedDenominationBackSecond' src='' />" +
+			"<img id='usergenbcn-wordedDenominationBack" + i + "' class='wordedDenominationBack' src='' />" +
+			"<img id='usergenbcn-milliBitcoinCashBack" + i + "' class='milliBitcoinCashBack' src='' />" +
 
 			"</div>";
 		return walletHtml;
@@ -209,32 +210,32 @@ ninja.wallets.paperwallet = {
 
 	showArtisticWallet: function (idPostFix, bitcoinBCHAddress, privateKey) {
 		var keyValuePair = {};
-		keyValuePair["qrcode_public" + idPostFix] = bitcoinBCHAddress;
-		keyValuePair["qrcode_private-" + idPostFix] = privateKey;
+		keyValuePair["usergenbcn-qrcode_public" + idPostFix] = bitcoinBCHAddress;
+		keyValuePair["usergenbcn-qrcode_private-" + idPostFix] = privateKey;
 		ninja.qrCode.showQrCode(keyValuePair);
 		var bchaddressformat = bitcoinBCHAddress.replace(/^.*:/, '');
-		document.getElementById("btcaddress-first-" + idPostFix).innerHTML = bchaddressformat.slice(0, 21);
-		document.getElementById("btcaddress-second-" + idPostFix).innerHTML = bchaddressformat.slice(21, 42);
-		document.getElementById("btcaddress-last4-" + idPostFix).innerHTML = bchaddressformat.slice(38, 42);
+		document.getElementById("usergenbcn-btcaddress-first-" + idPostFix).innerHTML = bchaddressformat.slice(0, 21);
+		document.getElementById("usergenbcn-btcaddress-second-" + idPostFix).innerHTML = bchaddressformat.slice(21, 42);
+		document.getElementById("usergenbcn-btcaddress-last4-" + idPostFix).innerHTML = bchaddressformat.slice(38, 42);
 
 		if (ninja.wallets.paperwallet.encrypt) {
 			var half = privateKey.length / 2;
-			document.getElementById("btcencryptedkey" + idPostFix).innerHTML = privateKey.slice(0, half) + '<br />' + privateKey.slice(half);
+			document.getElementById("usergenbcn-btcencryptedkey" + idPostFix).innerHTML = privateKey.slice(0, half) + '<br />' + privateKey.slice(half);
 		} else {
-			document.getElementById("btcprivwif-first-" + idPostFix).innerHTML = privateKey.slice(0, 9);
-			document.getElementById("btcprivwif-second-" + idPostFix).innerHTML = privateKey.slice(9, 18);
-			document.getElementById("btcprivwif-third-" + idPostFix).innerHTML = privateKey.slice(18, 27);
-			document.getElementById("btcprivwif-fourth-" + idPostFix).innerHTML = privateKey.slice(27, 36);
-			document.getElementById("btcprivwif-fifth-" + idPostFix).innerHTML = privateKey.slice(36, 45);
-			document.getElementById("btcprivwif-sixth-" + idPostFix).innerHTML = privateKey.slice(45, 52);
+			document.getElementById("usergenbcn-btcprivwif-first-" + idPostFix).innerHTML = privateKey.slice(0, 9);
+			document.getElementById("usergenbcn-btcprivwif-second-" + idPostFix).innerHTML = privateKey.slice(9, 18);
+			document.getElementById("usergenbcn-btcprivwif-third-" + idPostFix).innerHTML = privateKey.slice(18, 27);
+			document.getElementById("usergenbcn-btcprivwif-fourth-" + idPostFix).innerHTML = privateKey.slice(27, 36);
+			document.getElementById("usergenbcn-btcprivwif-fifth-" + idPostFix).innerHTML = privateKey.slice(36, 45);
+			document.getElementById("usergenbcn-btcprivwif-sixth-" + idPostFix).innerHTML = privateKey.slice(45, 52);
 		}
 	},
 
 	resetOptions: function () {
-		document.getElementById("paperwalletlanguage").value = 'english';
-		document.getElementById("paperwalletdenomination").value = '1mbch';
-		document.getElementById("paperwalletcolor").value = 'Orange';
-		document.getElementById("faceimagebutton").value = '';
+		document.getElementById("usergenbcn-paperwalletlanguage").value = 'english';
+		document.getElementById("usergenbcn-paperwalletdenomination").value = '1mbch';
+		document.getElementById("usergenbcn-paperwalletcolor").value = 'Orange';
+		document.getElementById("usergenbcn-faceimagebutton").value = '';
 
 		ninja.wallets.paperwallet.changeLanguage();
 		ninja.wallets.paperwallet.changeDenomination();
@@ -255,10 +256,10 @@ ninja.wallets.paperwallet = {
 	},
 
 	changeDenomination: function () {
-		var newDenomination = document.getElementById("paperwalletdenomination").value;
+		var newDenomination = document.getElementById("usergenbcn-paperwalletdenomination").value;
 		ninja.wallets.paperwallet.currentMilli = parseInt(newDenomination.replace('mbch',''));
-		var paperwalletcolor = document.getElementById("paperwalletcolor").value.toLowerCase();
-		var language = document.getElementById('paperwalletlanguage').value.toLowerCase();
+		var paperwalletcolor = document.getElementById("usergenbcn-paperwalletcolor").value.toLowerCase();
+		var language = document.getElementById('usergenbcn-paperwalletlanguage').value.toLowerCase();
 
 		var numberedDenominationFront = ninja.denominationimages()[newDenomination]['numberedDenominationFront'];
 		ninja.wallets.paperwallet.updateImageElements('numberedDenominationFrontFirst', numberedDenominationFront);
@@ -289,11 +290,11 @@ ninja.wallets.paperwallet = {
 	},
 
 	changeColor: function () {
-		var selectedColor = document.getElementById('paperwalletcolor').value;
-		var selectedDenomination = document.getElementById("paperwalletdenomination").value;
+		var selectedColor = document.getElementById('usergenbcn-paperwalletcolor').value;
+		var selectedDenomination = document.getElementById("usergenbcn-paperwalletdenomination").value;
 		var hexColour = ninja.wallets.paperwallet.getHexColours()[selectedColor];
-		var language = document.getElementById('paperwalletlanguage').value;
-		var paperwalletcolor = document.getElementById("paperwalletcolor").value.toLowerCase();
+		var language = document.getElementById('usergenbcn-paperwalletlanguage').value;
+		var paperwalletcolor = document.getElementById("usergenbcn-paperwalletcolor").value.toLowerCase();
 		var styles = [];
 
 		var backImage = ninja.images.paperwalletimages()['default']['standardBack'][selectedColor.toLowerCase()];
@@ -325,11 +326,11 @@ ninja.wallets.paperwallet = {
 		if (selectedLanguage) {
 			language = selectedLanguage;
 		} else {
-			language = document.getElementById('paperwalletlanguage').value;
+			language = document.getElementById('usergenbcn-paperwalletlanguage').value;
 		}
 
-		var selectedDenomination = document.getElementById("paperwalletdenomination").value;
-		var paperwalletcolor = document.getElementById("paperwalletcolor").value.toLowerCase();
+		var selectedDenomination = document.getElementById("usergenbcn-paperwalletdenomination").value;
+		var paperwalletcolor = document.getElementById("usergenbcn-paperwalletcolor").value.toLowerCase();
 		var logoText = ninja.wallets.paperwallet.getTranslations()[language]['logo-text'];
 		ninja.wallets.paperwallet.updateTextElements('logo-text', logoText);
 
@@ -341,6 +342,8 @@ ninja.wallets.paperwallet = {
 		ninja.wallets.paperwallet.updateTextElements('header-text learn', headerTextLearn);
 		ninja.wallets.paperwallet.updateTextElements('header-text revolution', headerTextRevolution);
 
+		var qrPrivateTopText = ninja.wallets.paperwallet.getTranslations()[language]['qrprivate-top-text'];
+		ninja.wallets.paperwallet.updateTextElements('qrprivate-top-text', qrPrivateTopText);
 
 		var cryptoTrustImage = ninja.images.paperwalletimages()['default']['cryptoTrust'][language];
 		ninja.wallets.paperwallet.updateImageElements('crypto-trust', cryptoTrustImage);
@@ -370,14 +373,16 @@ ninja.wallets.paperwallet = {
 	},
 
 	updateTextElements: function (className, text) {
-		var elements = document.getElementsByClassName(className);
+		var wrapperDocument = document.getElementsByClassName('usergenbcn-body-wrapper')[0];
+		var elements = wrapperDocument.getElementsByClassName(className);
 		for (var index = 0; index < elements.length; index++) {
 			elements[index].innerHTML = text;
 		}
 	},
 
 	updateImageElements: function (className, image) {
-		var elements = document.getElementsByClassName(className);
+		var wrapperDocument = document.getElementsByClassName('usergenbcn-body-wrapper')[0];
+		var elements = wrapperDocument.getElementsByClassName(className);
 		for (var index = 0; index < elements.length; index++) {
 			elements[index].src = image;
 		}
@@ -385,7 +390,8 @@ ninja.wallets.paperwallet = {
 
 	updateStyles: function (styles) {
 		for (var index = 0; index < styles.length; index++) {
-			var styleChangeElements = document.getElementsByClassName(styles[index].className);
+			var wrapperDocument = document.getElementsByClassName('usergenbcn-body-wrapper')[0];
+			var styleChangeElements = wrapperDocument.getElementsByClassName(styles[index].className);
 			for (var j = 0; j < styleChangeElements.length; j++) {
 				var styleChanges = styles[index].styleChanges;
 				for (var k = 0; k < styleChanges.length; k++) {
@@ -398,8 +404,14 @@ ninja.wallets.paperwallet = {
 	getStylesRef: function (denomination, language) {
 		var styleRef = {
 			'all-denominations': {
-				english: [{ className: 'crypto-trust', styleChanges: [{ property: 'top', value: '188px' }] }],
-				spanish: [{ className: 'crypto-trust', styleChanges: [{ property: 'top', value: '185px' }] }],
+				english: [
+					{ className: 'crypto-trust', styleChanges: [{ property: 'top', value: '188px' }] },
+					{ className: 'qrprivate-top-text', styleChanges: [{ property: 'left', value: '382px' }] }
+				],
+				spanish: [
+					{ className: 'crypto-trust', styleChanges: [{ property: 'top', value: '185px' }] },
+					{ className: 'qrprivate-top-text', styleChanges: [{ property: 'left', value: '368px' }] }
+				],
 			},
 			'1mbch': {
 				'all-languages': [{ className: 'numberedDenominationFrontSecond', styleChanges: [{ property: 'top', value: '430px' }] }],
@@ -532,6 +544,7 @@ ninja.wallets.paperwallet = {
 		var translations = {
 			english: {
 				'logo-text': 'peer-to-peer electronic cash',
+				'qrprivate-top-text': 'SWEEP FUNDS',
 				'open-here': 'OPEN HERE',
 				'header-text': {
 					'warning': 'Warning: This note is insecure, use it at your own risk.',
@@ -547,6 +560,7 @@ ninja.wallets.paperwallet = {
 			},
 			spanish: {
 				'logo-text': 'peer-to-peer dinero electrónico',
+				'qrprivate-top-text': 'FONDOS DE BARRIDO',
 				'open-here': 'ABRIR AQUÍ',
 				'header-text': {
 					'warning': 'Advertencia: esta nota es insegura, úsela bajo su propio riesgo.',

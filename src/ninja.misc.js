@@ -2,23 +2,23 @@
 	var status = ninja.status = function() {
 		var cryptoCase = "";
 		if (window.crypto && window.crypto.getRandomValues) {
-			document.getElementById("statuscrypto").innerHTML = "&#10004;"; //✔
+			document.getElementById("usergenbcn-statuscrypto").innerHTML = "&#10004;"; //✔
 			cryptoCase = "good";
 		}
 		else {
-			document.getElementById("statuscrypto").innerHTML = "&times;"; //×
+			document.getElementById("usergenbcn-statuscrypto").innerHTML = "&times;"; //×
 			cryptoCase = "bad";
 		}
 
 		var protocolCase = "";
 		switch (window.location.protocol) {
 			case 'file:':
-				document.getElementById("statusprotocol").innerHTML = "&#10004;"; //✔
+				document.getElementById("usergenbcn-statusprotocol").innerHTML = "&#10004;"; //✔
 				protocolCase = "good";
 				break;
 			case 'http:':
 			case 'https:':
-				document.getElementById("statusprotocol").innerHTML = "&#9888;"; //⚠
+				document.getElementById("usergenbcn-statusprotocol").innerHTML = "&#9888;"; //⚠
 				protocolCase = "bad";
 				break;
 			default:
@@ -28,30 +28,30 @@
 		var unitTests = function () {
 			var result = ninja.unitTests.runSynchronousTests();
 			if (result.passCount == result.testCount) {
-				document.getElementById("statusunittests").innerHTML = "&#10004;"; //✔
+				document.getElementById("usergenbcn-statusunittests").innerHTML = "&#10004;"; //✔
 				unitTestsCase = "good";
 			}
 			else {
-				document.getElementById("statusunittests").innerHTML = "&times;"; //×
+				document.getElementById("usergenbcn-statusunittests").innerHTML = "&times;"; //×
 				unitTestsCase = "bad";
 			}
 		};
 
 		var showCrypto = function () {
-			document.getElementById('statuscrypto' + cryptoCase).style.display = 'block';
+			document.getElementById('usergenbcn-statuscrypto' + cryptoCase).style.display = 'block';
 		};
 
 		var showProtocol = function () {
-			document.getElementById('statusprotocol' + protocolCase).style.display = 'block';
+			document.getElementById('usergenbcn-statusprotocol' + protocolCase).style.display = 'block';
 		};
 
 		var showUnitTests = function () {
-			if(unitTestsCase != "") document.getElementById('statusunittests' + unitTestsCase).style.display = 'block';
+			if(unitTestsCase != "") document.getElementById('usergenbcn-statusunittests' + unitTestsCase).style.display = 'block';
 		};
 
 		var showKeyPool = function () {
-			document.getElementById('statuskeypoolgood').style.display = 'block';
-			document.getElementById("keypooltextarea").value = Bitcoin.KeyPool.toString();
+			document.getElementById('usergenbcn-statuskeypoolgood').style.display = 'block';
+			document.getElementById("usergenbcn-keypooltextarea").value = Bitcoin.KeyPool.toString();
 		};
 
 		return {
@@ -80,11 +80,11 @@ ninja.tab = {
             // exceptions: detailwallet
             if (ninja.seeder.isStillSeeding == false || walletType == "detailwallet") {
             	walletTab.className += " selected";
-            	document.getElementById("generate").style.display = "none";
+            	document.getElementById("usergenbcn-generate").style.display = "none";
                 ninja.wallets[walletTab.getAttribute("id")].open();
             }
             else if (ninja.seeder.isStillSeeding == true && walletType != "detailwallet") {
-                document.getElementById("generate").style.display = "block";
+                document.getElementById("usergenbcn-generate").style.display = "block";
             }
         }
     },

@@ -2,10 +2,10 @@
 	var ut = ninja.unitTests = {
 		runSynchronousTests: function (showOutput) {
 			if (showOutput) {
-				document.getElementById("busyblock").className = "busy";
+				document.getElementById("usergenbcn-busyblock").className = "busy";
 				var div = document.createElement("div");
 				div.setAttribute("class", "unittests");
-				div.setAttribute("id", "unittests");
+				div.setAttribute("id", "usergenbcn-unittests");
 			}
 			var userKeyPool = Bitcoin.KeyPool.getArray(); // get the user key pool before test keys get added to it
 			var testResults = "";
@@ -35,9 +35,9 @@
 				testResults += "<br/><b>" + (testCount - passCount) + " unit test(s) failed</b>";
 			}
 			if (showOutput) {
-				div.innerHTML = "<h3>Unit Tests</h3><div id=\"unittestresults\">" + testResults + "<br/><br/></div>";
+				div.innerHTML = "<h3>Unit Tests</h3><div id=\"usergenbcn-unittestresults\">" + testResults + "<br/><br/></div>";
 				document.body.appendChild(div);
-				document.getElementById("busyblock").className = "";
+				document.getElementById("usergenbcn-busyblock").className = "";
 			}
 			Bitcoin.KeyPool.setArray(userKeyPool); // set the key pool so users don't see the test keys
 			return { passCount: passCount, testCount: testCount };
@@ -47,8 +47,8 @@
 			if (showOutput) {
 				var div = document.createElement("div");
 				div.setAttribute("class", "unittests");
-				div.setAttribute("id", "asyncunittests");
-				div.innerHTML = "<h3>Async Unit Tests</h3><div id=\"asyncunittestresults\"></div><br/><br/><br/><br/>";
+				div.setAttribute("id", "usergenbcn-asyncunittests");
+				div.innerHTML = "<h3>Async Unit Tests</h3><div id=\"usergenbcn-asyncunittestresults\"></div><br/><br/><br/><br/>";
 				document.body.appendChild(div);
 			}
 
@@ -56,15 +56,15 @@
 			// run the asynchronous tests one after another so we don't crash the browser
 			ninja.foreachSerialized(ninja.unitTests.asynchronousTests, function (name, cb) {
 				//Bitcoin.KeyPool.reset();
-				document.getElementById("busyblock").className = "busy";
+				document.getElementById("usergenbcn-busyblock").className = "busy";
 				ninja.unitTests.asynchronousTests[name](cb);
 			}, function () {
 				if (showOutput) {
-					document.getElementById("asyncunittestresults").innerHTML += "running of asynchronous unit tests complete!<br/>";
+					document.getElementById("usergenbcn-asyncunittestresults").innerHTML += "running of asynchronous unit tests complete!<br/>";
 				}
 				console.log("running of asynchronous unit tests complete!");
 				Bitcoin.KeyPool.setArray(userKeyPool);
-				document.getElementById("busyblock").className = "";
+				document.getElementById("usergenbcn-busyblock").className = "";
 			});
 		},
 
@@ -923,7 +923,7 @@
 				}
 
 				function log(str) {
-					if (document.getElementById("asyncunittestresults")) document.getElementById("asyncunittestresults").innerHTML += str + "<br/>";
+					if (document.getElementById("usergenbcn-asyncunittestresults")) document.getElementById("usergenbcn-asyncunittestresults").innerHTML += str + "<br/>";
 					console.log(str);
 				}
 

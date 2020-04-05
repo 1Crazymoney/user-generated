@@ -1,16 +1,16 @@
 ninja.wallets.splitwallet = {
     isOpen: function () {
-        return (document.getElementById("splitwallet").className.indexOf("selected") != -1);
+        return (document.getElementById("usergenbcn-splitwallet").className.indexOf("selected") != -1);
     },
 
 	open: function () {
-		document.getElementById("splitarea").style.display = "block";
+		document.getElementById("usergenbcn-splitarea").style.display = "block";
 		secrets.setRNG();
 		secrets.init(7); // 7 bits allows for up to 127 shares
 	},
 
 	close: function () {
-		document.getElementById("splitarea").style.display = "none";
+		document.getElementById("usergenbcn-splitarea").style.display = "none";
 	},
 
 	mkOutputRow: function (s, id, lbltxt) {
@@ -46,29 +46,29 @@ ninja.wallets.splitwallet = {
 	// Split a private key and update information in the HTML
 	splitKey: function () {
 		try {
-			var numshares = parseInt(document.getElementById('splitshares').value);
-			var threshold = parseInt(document.getElementById('splitthreshold').value);
+			var numshares = parseInt(document.getElementById('usergenbcn-splitshares').value);
+			var threshold = parseInt(document.getElementById('usergenbcn-splitthreshold').value);
 			var key = new Bitcoin.ECKey(false);
 			var bitcoinAddress = key.getBitcoinAddress();
 			var shares = ninja.wallets.splitwallet.getFormattedShares(key.getBitcoinHexFormat(), numshares, threshold);
 
 			var output = document.createElement("div");
-			output.setAttribute("id", "splitoutput");
+			output.setAttribute("id", "usergenbcn-splitoutput");
 			var m = {};
-			output.appendChild(this.mkOutputRow(bchaddr.toCashAddress(bitcoinAddress), "split_addr", "Bitcoin Cash Address:    "));
-			m["split_addr"] = bchaddr.toCashAddress(bitcoinAddress);
+			output.appendChild(this.mkOutputRow(bchaddr.toCashAddress(bitcoinAddress), "usergenbcn-split_addr", "Bitcoin Cash Address:    "));
+			m["usergenbcn-split_addr"] = bchaddr.toCashAddress(bitcoinAddress);
 
 			for (var i = 0; i < shares.length; i++) {
-				var id = "split_qr_" + i;
+				var id = "usergenbcn-split_qr_" + i;
 				output.appendChild(this.mkOutputRow(shares[i], id, "Share " + (i + 1) + ":          "));
 				m[id] = shares[i];
 			}
 
-			document.getElementById("splitstep1area").innerHTML = output.innerHTML;
+			document.getElementById("usergenbcn-splitstep1area").innerHTML = output.innerHTML;
 			ninja.qrCode.showQrCode(m, 4);
 
-			document.getElementById("splitstep1area").style.display = "block";
-			document.getElementById("splitstep1icon").setAttribute("class", "less");
+			document.getElementById("usergenbcn-splitstep1area").style.display = "block";
+			document.getElementById("usergenbcn-splitstep1icon").setAttribute("class", "less");
 		}
 		catch (e) {
 			// browser does not have sufficient JavaScript support to generate a bitcoin address
@@ -79,11 +79,11 @@ ninja.wallets.splitwallet = {
 	// Combine shares of a private key to retrieve the key
 	combineShares: function () {
 		try {
-			document.getElementById("combinedprivatekey").innerHTML = "";
-			var shares = document.getElementById("combineinput").value.trim().split(/\W+/);
+			document.getElementById("usergenbcn-combinedprivatekey").innerHTML = "";
+			var shares = document.getElementById("usergenbcn-combineinput").value.trim().split(/\W+/);
 			var combinedBytes = ninja.wallets.splitwallet.combineFormattedShares(shares);
 			var privkeyBase58 = new Bitcoin.ECKey(combinedBytes).getBitcoinWalletImportFormat();
-			document.getElementById("combinedprivatekey").innerHTML = privkeyBase58;
+			document.getElementById("usergenbcn-combinedprivatekey").innerHTML = privkeyBase58;
 		}
 		catch (e) {
 			alert(e);
@@ -104,14 +104,14 @@ ninja.wallets.splitwallet = {
 
 	openCloseStep: function (num) {
 		// do close
-		if (document.getElementById("splitstep" + num + "area").style.display == "block") {
-			document.getElementById("splitstep" + num + "area").style.display = "none";
-			document.getElementById("splitstep" + num + "icon").setAttribute("class", "more");
+		if (document.getElementById("usergenbcn-splitstep" + num + "area").style.display == "block") {
+			document.getElementById("usergenbcn-splitstep" + num + "area").style.display = "none";
+			document.getElementById("usergenbcn-splitstep" + num + "icon").setAttribute("class", "more");
 		}
 		// do open
 		else {
-			document.getElementById("splitstep" + num + "area").style.display = "block";
-			document.getElementById("splitstep" + num + "icon").setAttribute("class", "less");
+			document.getElementById("usergenbcn-splitstep" + num + "area").style.display = "block";
+			document.getElementById("usergenbcn-splitstep" + num + "icon").setAttribute("class", "less");
 		}
 	}
 };

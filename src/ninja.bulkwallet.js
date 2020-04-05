@@ -1,22 +1,22 @@
 (function (wallets, translator, privateKey) {
 	var bulk = wallets.bulkwallet = {
 		isOpen: function () {
-		    return (document.getElementById("bulkwallet").className.indexOf("selected") != -1);
+		    return (document.getElementById("usergenbcn-bulkwallet").className.indexOf("selected") != -1);
 		},
 
 		open: function () {
-			document.getElementById("bulkarea").style.display = "block";
+			document.getElementById("usergenbcn-bulkarea").style.display = "block";
 			// show a default CSV list if the text area is empty
-			if (document.getElementById("bulktextarea").value == "") {
+			if (document.getElementById("usergenbcn-bulktextarea").value == "") {
 				// return control of the thread to the browser to render the tab switch UI then build a default CSV list
-				setTimeout(function () { bulk.buildCSV(3, 1, document.getElementById("bulkcompressed").checked); }, 200);
+				setTimeout(function () { bulk.buildCSV(3, 1, document.getElementById("usergenbcn-bulkcompressed").checked); }, 200);
 			}
 
-			document.getElementById("bulkpassphrase").disabled = !document.getElementById("bulkencrypt").checked;
+			document.getElementById("usergenbcn-bulkpassphrase").disabled = !document.getElementById("usergenbcn-bulkencrypt").checked;
 		},
 
 		close: function () {
-			document.getElementById("bulkarea").style.display = "none";
+			document.getElementById("usergenbcn-bulkarea").style.display = "none";
 		},
 
 		// use this function to bulk generate addresses
@@ -25,7 +25,7 @@
 		// returns:
 		// index,bitcoinAddress,privateKeyWif
 		buildCSV: function (rowLimit, startIndex, compressedAddrs, passphrase) {
-			document.getElementById("bulktextarea").value = translator.get("bulkgeneratingaddresses") + rowLimit;
+			document.getElementById("usergenbcn-bulktextarea").value = translator.get("bulkgeneratingaddresses") + rowLimit;
 			bulk.csv = [];
 			bulk.csvRowLimit = rowLimit;
 			bulk.csvRowsRemaining = rowLimit;
@@ -36,10 +36,10 @@
 					alert(translator.get("bip38alertpassphraserequired"));
 					return;
 				}
-				document.getElementById("busyblock").className = "busy";
+				document.getElementById("usergenbcn-busyblock").className = "busy";
 				privateKey.BIP38GenerateIntermediatePointAsync(passphrase, null, null, function (intermediate) {
 					bulk.intermediatePoint = intermediate;
-					document.getElementById("busyblock").className = "";
+					document.getElementById("usergenbcn-busyblock").className = "";
 					setTimeout(bulk.batchCSV, 0);
 				});
 			}
@@ -64,7 +64,7 @@
 						bulk.csv.push((bulk.csvRowLimit - bulk.csvRowsRemaining + bulk.csvStartIndex)
 										+ ",\"" + bchaddr.toCashAddress(address) + "\",\"" + encryptedKey
 										+ "\"");
-						document.getElementById("bulktextarea").value = translator.get("bulkgeneratingaddresses") + bulk.csvRowsRemaining;
+						document.getElementById("usergenbcn-bulktextarea").value = translator.get("bulkgeneratingaddresses") + bulk.csvRowsRemaining;
 
 						// release thread to browser to render UI
 						setTimeout(bulk.batchCSV, 0);
@@ -80,7 +80,7 @@
 										//+ "\",\"" + key.getBitcoinHexFormat() 
 										//+ "\",\"" + key.toString("base64") 
 										+ "\"");
-					document.getElementById("bulktextarea").value = translator.get("bulkgeneratingaddresses") + bulk.csvRowsRemaining;
+					document.getElementById("usergenbcn-bulktextarea").value = translator.get("bulkgeneratingaddresses") + bulk.csvRowsRemaining;
 
 					// release thread to browser to render UI
 					setTimeout(bulk.batchCSV, 0);
@@ -88,26 +88,26 @@
 			}
 			// processing is finished so put CSV in text area
 			else if (bulk.csvRowsRemaining === 0) {
-				document.getElementById("bulktextarea").value = bulk.csv.join("\n");
+				document.getElementById("usergenbcn-bulktextarea").value = bulk.csv.join("\n");
 			}
 		},
 
 		openCloseFaq: function (faqNum) {
 			// do close
-			if (document.getElementById("bulka" + faqNum).style.display == "block") {
-				document.getElementById("bulka" + faqNum).style.display = "none";
-				document.getElementById("bulke" + faqNum).setAttribute("class", "more");
+			if (document.getElementById("usergenbcn-bulka" + faqNum).style.display == "block") {
+				document.getElementById("usergenbcn-bulka" + faqNum).style.display = "none";
+				document.getElementById("usergenbcn-bulke" + faqNum).setAttribute("class", "more");
 			}
 			// do open
 			else {
-				document.getElementById("bulka" + faqNum).style.display = "block";
-				document.getElementById("bulke" + faqNum).setAttribute("class", "less");
+				document.getElementById("usergenbcn-bulka" + faqNum).style.display = "block";
+				document.getElementById("usergenbcn-bulke" + faqNum).setAttribute("class", "less");
 			}
 		},
 
 		toggleEncrypt: function (element) {
 			// enable/disable passphrase textbox
-			document.getElementById("bulkpassphrase").disabled = !element.checked;
+			document.getElementById("usergenbcn-bulkpassphrase").disabled = !element.checked;
 			bulk.encrypt = element.checked;
 		}
 	};

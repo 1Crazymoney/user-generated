@@ -1,28 +1,28 @@
 ninja.wallets.vanitywallet = {
     isOpen: function () {
-        return (document.getElementById("vanitywallet").className.indexOf("selected") != -1);
+        return (document.getElementById("usergenbcn-vanitywallet").className.indexOf("selected") != -1);
     },
 
 	open: function () {
-		document.getElementById("vanityarea").style.display = "block";
+		document.getElementById("usergenbcn-vanityarea").style.display = "block";
 	},
 
 	close: function () {
-		document.getElementById("vanityarea").style.display = "none";
-		document.getElementById("vanitystep1area").style.display = "none";
-		document.getElementById("vanitystep2area").style.display = "none";
-		document.getElementById("vanitystep1icon").setAttribute("class", "more");
-		document.getElementById("vanitystep2icon").setAttribute("class", "more");
+		document.getElementById("usergenbcn-vanityarea").style.display = "none";
+		document.getElementById("usergenbcn-vanitystep1area").style.display = "none";
+		document.getElementById("usergenbcn-vanitystep2area").style.display = "none";
+		document.getElementById("usergenbcn-vanitystep1icon").setAttribute("class", "more");
+		document.getElementById("usergenbcn-vanitystep2icon").setAttribute("class", "more");
 	},
 
 	generateKeyPair: function () {
 		var key = new Bitcoin.ECKey(false);
 		var publicKey = key.getPubKeyHex();
 		var privateKey = key.getBitcoinHexFormat();
-		document.getElementById("vanitypubkey").innerHTML = publicKey;
-		document.getElementById("vanityprivatekey").innerHTML = privateKey;
-		document.getElementById("vanityarea").style.display = "block";
-		document.getElementById("vanitystep1area").style.display = "none";
+		document.getElementById("usergenbcn-vanitypubkey").innerHTML = publicKey;
+		document.getElementById("usergenbcn-vanityprivatekey").innerHTML = privateKey;
+		document.getElementById("usergenbcn-vanityarea").style.display = "block";
+		document.getElementById("usergenbcn-vanitystep1area").style.display = "none";
 	},
 
 	addKeys: function () {
@@ -30,13 +30,13 @@ ninja.wallets.vanitywallet = {
 		var bitcoinAddress = ninja.translator.get("vanityinvalidinputcouldnotcombinekeys");
 		var publicKeyHex = ninja.translator.get("vanityinvalidinputcouldnotcombinekeys");
 		try {
-			var input1KeyString = document.getElementById("vanityinput1").value;
-			var input2KeyString = document.getElementById("vanityinput2").value;
+			var input1KeyString = document.getElementById("usergenbcn-vanityinput1").value;
+			var input2KeyString = document.getElementById("usergenbcn-vanityinput2").value;
 
 			// both inputs are public keys
 			if (ninja.publicKey.isPublicKeyHexFormat(input1KeyString) && ninja.publicKey.isPublicKeyHexFormat(input2KeyString)) {
 				// add both public keys together
-				if (document.getElementById("vanityradioadd").checked) {
+				if (document.getElementById("usergenbcn-vanityradioadd").checked) {
 					var pubKeyByteArray = ninja.publicKey.getByteArrayFromAdding(input1KeyString, input2KeyString);
 					if (pubKeyByteArray == null) {
 						alert(ninja.translator.get("vanityalertinvalidinputpublickeysmatch"));
@@ -59,7 +59,7 @@ ninja.wallets.vanitywallet = {
 				var pubKeyHex = (ninja.publicKey.isPublicKeyHexFormat(input1KeyString)) ? input1KeyString : input2KeyString;
 				var ecKey = (ninja.privateKey.isPrivateKey(input1KeyString)) ? new Bitcoin.ECKey(input1KeyString) : new Bitcoin.ECKey(input2KeyString);
 				// add 
-				if (document.getElementById("vanityradioadd").checked) {
+				if (document.getElementById("usergenbcn-vanityradioadd").checked) {
 					var pubKeyCombined = ninja.publicKey.getByteArrayFromAdding(pubKeyHex, ecKey.getPubKeyHex());
 				}
 				// multiply
@@ -77,7 +77,7 @@ ninja.wallets.vanitywallet = {
 			else if (ninja.privateKey.isPrivateKey(input1KeyString) && ninja.privateKey.isPrivateKey(input2KeyString)) {
 				var combinedPrivateKey;
 				// add both private keys together
-				if (document.getElementById("vanityradioadd").checked) {
+				if (document.getElementById("usergenbcn-vanityradioadd").checked) {
 					combinedPrivateKey = ninja.privateKey.getECKeyFromAdding(input1KeyString, input2KeyString);
 				}
 				// multiply both private keys together
@@ -96,23 +96,23 @@ ninja.wallets.vanitywallet = {
 		} catch (e) {
 			alert(e);
 		}
-		document.getElementById("vanityprivatekeywif").innerHTML = privateKeyWif;
-		document.getElementById("vanityaddress").innerHTML = bitcoinAddress;
-		document.getElementById("vanitypublickeyhex").innerHTML = publicKeyHex;
-		document.getElementById("vanitystep2area").style.display = "block";
-		document.getElementById("vanitystep2icon").setAttribute("class", "less");
+		document.getElementById("usergenbcn-vanityprivatekeywif").innerHTML = privateKeyWif;
+		document.getElementById("usergenbcn-vanityaddress").innerHTML = bitcoinAddress;
+		document.getElementById("usergenbcn-vanitypublickeyhex").innerHTML = publicKeyHex;
+		document.getElementById("usergenbcn-vanitystep2area").style.display = "block";
+		document.getElementById("usergenbcn-vanitystep2icon").setAttribute("class", "less");
 	},
 
 	openCloseStep: function (num) {
 		// do close
-		if (document.getElementById("vanitystep" + num + "area").style.display == "block") {
-			document.getElementById("vanitystep" + num + "area").style.display = "none";
-			document.getElementById("vanitystep" + num + "icon").setAttribute("class", "more");
+		if (document.getElementById("usergenbcn-vanitystep" + num + "area").style.display == "block") {
+			document.getElementById("usergenbcn-vanitystep" + num + "area").style.display = "none";
+			document.getElementById("usergenbcn-vanitystep" + num + "icon").setAttribute("class", "more");
 		}
 		// do open
 		else {
-			document.getElementById("vanitystep" + num + "area").style.display = "block";
-			document.getElementById("vanitystep" + num + "icon").setAttribute("class", "less");
+			document.getElementById("usergenbcn-vanitystep" + num + "area").style.display = "block";
+			document.getElementById("usergenbcn-vanitystep" + num + "icon").setAttribute("class", "less");
 		}
 	}
 };

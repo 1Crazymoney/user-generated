@@ -20,22 +20,22 @@
 				translator.currentCulture = culture;
 				// update menu UI
 				for (var cult in translator.translations) {
-					var cultureElement = document.getElementById("culture" + cult);
+					var cultureElement = document.getElementById("usergenbcn-culture" + cult);
 					if (cultureElement != null) {
 						cultureElement.setAttribute("class", "");
 					}
 					else {
-						console.log("DOM element not found: " + "culture" + cult);
+						console.log("DOM element not found: " + "usergenbcn-culture" + cult);
 					}
-					document.getElementById("culture" + culture).setAttribute("class", "selected");
+					document.getElementById("usergenbcn-culture" + culture).setAttribute("class", "selected");
 				}
 				// apply translations
 				for (var id in dict) {
-					if (document.getElementById(id) && document.getElementById(id).value) {
-						document.getElementById(id).value = dict[id];
+					if (document.getElementById("usergenbcn-" + id) && document.getElementById("usergenbcn-" + id).value) {
+						document.getElementById("usergenbcn-" + id).value = dict[id];
 					}
-					else if (document.getElementById(id)) {
-						document.getElementById(id).innerHTML = dict[id];
+					else if (document.getElementById("usergenbcn-" + id)) {
+						document.getElementById("usergenbcn-" + id).innerHTML = dict[id];
 					}
 				}
 				return true;
@@ -92,12 +92,12 @@
 				delete langClone[key];
 			}
 			for (var key in langClone) {
-				if (document.getElementById(key)) {
-					if (document.getElementById(key).value) {
-						newLang[key] = document.getElementById(key).value;
+				if (document.getElementById("usergenbcn-" + key)) {
+					if (document.getElementById("usergenbcn-" + key).value) {
+						newLang[key] = document.getElementById("usergenbcn-" + key).value;
 					}
 					else {
-						newLang[key] = document.getElementById(key).innerHTML;
+						newLang[key] = document.getElementById("usergenbcn-" + key).innerHTML;
 					}
 				}
 			}
@@ -117,12 +117,12 @@
 				delete langClone[key];
 			}
 			for (var key in langClone) {
-				if (document.getElementById(key)) {
-					if (document.getElementById(key).value) {
-						newLang[key] = document.getElementById(key).value;
+				if (document.getElementById("usergenbcn-" + key)) {
+					if (document.getElementById("usergenbcn-" + key).value) {
+						newLang[key] = document.getElementById("usergenbcn-" + key).value;
 					}
 					else {
-						newLang[key] = document.getElementById(key).innerHTML;
+						newLang[key] = document.getElementById("usergenbcn-" + key).innerHTML;
 					}
 				}
 			}

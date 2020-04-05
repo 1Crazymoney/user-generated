@@ -61,12 +61,12 @@
 			for (var key in keyValuePair) {
 				var value = keyValuePair[key];
 				var multiplier = sizeMultiplier;
-				if (key.startsWith('qrcode_public')) {
+				if (key.startsWith('usergenbcn-qrcode_public')) {
 					value = ninja.qrCode.scheme() + value;
 					multiplier = 2.9;
 				}
 
-				if (key.startsWith('qrcode_private')) {
+				if (key.startsWith('usergenbcn-qrcode_private')) {
 					multiplier = 2.2;
 				}
 

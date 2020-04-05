@@ -134,49 +134,49 @@
 //main.css
 	</style>
 </head>
-<body onclick="SecureRandom.seedTime();" onmousemove="ninja.seeder.seed(event);">
-	<div id="busyblock"></div>
-	<div id="main">
-		<div id="culturemenu">
+<body class="usergenbcn-body-wrapper" onclick="SecureRandom.seedTime();" onmousemove="ninja.seeder.seed(event);">
+	<div id="usergenbcn-busyblock"></div>
+	<div id="usergenbcn-main">
+		<div id="usergenbcn-culturemenu">
             <div class="culturemenurow">
-                <span><a href="?culture=en" id="cultureen" class="selected" onclick="ninja.translator.translate('en'); return false;">English</a></span> |
-                <span><a href="?culture=es" id="culturees" onclick="ninja.translator.translate('es'); return false;">Español</a></span> |
-                <span><a href="?culture=fr" id="culturefr" onclick="ninja.translator.translate('fr'); return false;">Français</a></span> |
-                <span><a href="?culture=el" id="cultureel" onclick="ninja.translator.translate('el'); return false;">ελληνικά</a></span> |
-                <span><a href="?culture=it" id="cultureit" onclick="ninja.translator.translate('it'); return false;">italiano</a></span> |
-                <span><a href="?culture=de" id="culturede" onclick="ninja.translator.translate('de'); return false;">Deutsch</a></span>
+                <span><a href="?culture=en" id="usergenbcn-cultureen" class="selected" onclick="ninja.translator.translate('en'); return false;">English</a></span> |
+                <span><a href="?culture=es" id="usergenbcn-culturees" onclick="ninja.translator.translate('es'); return false;">Español</a></span> |
+                <span><a href="?culture=fr" id="usergenbcn-culturefr" onclick="ninja.translator.translate('fr'); return false;">Français</a></span> |
+                <span><a href="?culture=el" id="usergenbcn-cultureel" onclick="ninja.translator.translate('el'); return false;">ελληνικά</a></span> |
+                <span><a href="?culture=it" id="usergenbcn-cultureit" onclick="ninja.translator.translate('it'); return false;">italiano</a></span> |
+                <span><a href="?culture=de" id="usergenbcn-culturede" onclick="ninja.translator.translate('de'); return false;">Deutsch</a></span>
             </div>
             <div class="culturemenurow">
-                <span><a href="?culture=cs" id="culturecs" onclick="ninja.translator.translate('cs'); return false;">Česky</a></span> |
-                <span><a href="?culture=hu" id="culturehu" onclick="ninja.translator.translate('hu'); return false;">Magyar</a></span> |
-                <span><a href="?culture=jp" id="culturejp" onclick="ninja.translator.translate('jp'); return false;">日本語</a></span> |
-                <span><a href="?culture=zh-cn" id="culturezh-cn" onclick="ninja.translator.translate('zh-cn'); return false;">简体中文</a></span> |
-                <span><a href="?culture=ru" id="cultureru" onclick="ninja.translator.translate('ru'); return false;">Русский</a></span> |
-                <span><a href="?culture=pt-br" id="culturept-br" onclick="ninja.translator.translate('pt-br'); return false;">português</a></span>
+                <span><a href="?culture=cs" id="usergenbcn-culturecs" onclick="ninja.translator.translate('cs'); return false;">Česky</a></span> |
+                <span><a href="?culture=hu" id="usergenbcn-culturehu" onclick="ninja.translator.translate('hu'); return false;">Magyar</a></span> |
+                <span><a href="?culture=jp" id="usergenbcn-culturejp" onclick="ninja.translator.translate('jp'); return false;">日本語</a></span> |
+                <span><a href="?culture=zh-cn" id="usergenbcn-culturezh-cn" onclick="ninja.translator.translate('zh-cn'); return false;">简体中文</a></span> |
+                <span><a href="?culture=ru" id="usergenbcn-cultureru" onclick="ninja.translator.translate('ru'); return false;">Русский</a></span> |
+                <span><a href="?culture=pt-br" id="usergenbcn-culturept-br" onclick="ninja.translator.translate('pt-br'); return false;">português</a></span>
             </div>
 		</div>
-		<div id="seedpoolarea"><textarea rows="16" cols="62" id="seedpool"></textarea></div>
-		<div id="testnet"></div>
-		<div id="numberToGenerate">
-			<span><label id="paperlabeladdressestogenerate" for="paperlimit">How many paper wallets would you like to generate?</label> <input type="number" id="paperlimit" value="1" min="1" max="100" /></span>
-			<span><input type="button" id="papergenerate" value="Generate" onclick="ninja.seeder.setInitialised();" /></span>
+		<div id="usergenbcn-seedpoolarea"><textarea rows="16" cols="62" id="usergenbcn-seedpool"></textarea></div>
+		<div id="usergenbcn-testnet"></div>
+		<div id="usergenbcn-numberToGenerate">
+			<span><label id="usergenbcn-paperlabeladdressestogenerate" for="paperlimit">How many paper wallets would you like to generate?</label> <input type="number" id="usergenbcn-paperlimit" value="1" min="1" max="100" /></span>
+			<span><input type="button" id="usergenbcn-papergenerate" value="Generate" onclick="ninja.seeder.setInitialised();" /></span>
 		</div>
-		<div id="generate">
-			<span id="generatelabelbitcoinaddress">Generating Bitcoin Cash Address.</span><br />
-			<span id="generatelabelmovemouse">MOVE your mouse around to generate randomness.</span><br />
-			<span id="generatelabelkeypress">OR type random characters into this textbox</span> <input type="text" id="generatekeyinput" onkeydown="ninja.seeder.seedKeyPress(event);" /><br />
-			<span id="mousemovelimit"></span><span>complete</span>
-			<div id="seedpooldisplay"></div>
+		<div id="usergenbcn-generate">
+			<span id="usergenbcn-generatelabelbitcoinaddress">Generating Bitcoin Cash Address.</span><br />
+			<span id="usergenbcn-generatelabelmovemouse">MOVE your mouse around to generate randomness.</span><br />
+			<span id="usergenbcn-generatelabelkeypress">OR type random characters into this textbox</span> <input type="text" id="usergenbcn-generatekeyinput" onkeydown="ninja.seeder.seedKeyPress(event);" /><br />
+			<span id="usergenbcn-mousemovelimit"></span><span>complete</span>
+			<div id="usergenbcn-seedpooldisplay"></div>
 		</div>
-		<div id="wallets">
-			<div id="paperarea">
+		<div id="usergenbcn-wallets">
+			<div id="usergenbcn-paperarea">
 				<div class="commands">
-					<div id="papercommands" class="row">
-						<div class="commandoption"><label>Language:</label> <select id="paperwalletlanguage" onchange="ninja.wallets.paperwallet.changeLanguage();">
+					<div id="usergenbcn-papercommands" class="row">
+						<div class="commandoption"><label>Language:</label> <select id="usergenbcn-paperwalletlanguage" onchange="ninja.wallets.paperwallet.changeLanguage();">
 							<option value="english">English</option>
 							<option value="spanish">Spanish</option></select>
 						</div>
-						<div class="commandoption"><label>Denomination:</label> <select id="paperwalletdenomination" onchange="ninja.wallets.paperwallet.changeDenomination();">
+						<div class="commandoption"><label>Denomination:</label> <select id="usergenbcn-paperwalletdenomination" onchange="ninja.wallets.paperwallet.changeDenomination();">
 							<option value="1mbch">1 mBCH</option>
 							<option value="2mbch">2 mBCH</option>
 							<option value="5mbch">5 mBCH</option>
@@ -185,7 +185,7 @@
 							<option value="50mbch">50 mBCH</option>
 							<option value="100mbch">100 mBCH</option></select>
 						</div>
-						<div class="commandoption"><label>Color:</label> <select id="paperwalletcolor" onchange="ninja.wallets.paperwallet.changeColor();">
+						<div class="commandoption"><label>Color:</label> <select id="usergenbcn-paperwalletcolor" onchange="ninja.wallets.paperwallet.changeColor();">
 							<option value="Orange">Orange</option>
 							<option value="Green">Green</option>
 							<option value="Red">Red</option>
@@ -193,79 +193,79 @@
 							<option value="Blue">Blue</option>
 							<option value="Gold">Gold</option></select>
 						</div>
-						<span class="print"><input type="button" name="print" value="Print" id="paperprint" onclick="window.print();" /></span>
-						<span class="publicaddresses"><input type="button" name="publicaddresses" value="Public addresses" id="publicaddresses" onclick="ninja.wallets.paperwallet.downloadAddressesCsv();" /></span>
+						<span class="print"><input type="button" name="print" value="Print" id="usergenbcn-paperprint" onclick="window.print();" /></span>
+						<span class="publicaddresses"><input type="button" name="publicaddresses" value="Public addresses" id="usergenbcn-publicaddresses" onclick="ninja.wallets.paperwallet.downloadAddressesCsv();" /></span>
 						<div class="help-tip for-publicaddresses"><p>Download a csv of all of the below generated public addresses. The csv can be conveniently used in Electron Cash (Desktop) for bulk sending BCH to these addresses.</p></div>
-						<span class="resetoptions"><input type="button" name="resetoptions" value="Reset options" id="resetoptions" onclick="ninja.wallets.paperwallet.resetOptions();" /></span>
-						<div class="commandoption"><label id="faceimage" for="faceimagebutton">Face image:</label> <input type="file" name="faceimagebutton" value="Select image" id="faceimagebutton" onchange="ninja.wallets.paperwallet.inputNewFace(this);" /></div>
+						<span class="resetoptions"><input type="button" name="resetoptions" value="Reset options" id="usergenbcn-resetoptions" onclick="ninja.wallets.paperwallet.resetOptions();" /></span>
+						<div class="commandoption"><label id="usergenbcn-faceimage" for="faceimagebutton">Face image:</label> <input type="file" name="faceimagebutton" value="Select image" id="usergenbcn-faceimagebutton" onchange="ninja.wallets.paperwallet.inputNewFace(this);" /></div>
 						<div class="help-tip for-faceimage"><p>For the best results, use a .png image with a transparent background. Ideal dimensions are: width 190px, height 153px.</p></div>
 					</div>
 				</div>
-				<div id="paperkeyarea"></div>
+				<div id="usergenbcn-paperkeyarea"></div>
 			</div>
 		</div>
-		<div id="footer" class="footer">
+		<div id="usergenbcn-footer" class="footer">
 			<div class="tooltips">
-				<div class="tooltip" id="statuscryptogood">
-					<span class="statusgood" id="statuslabelcryptogood">&#10004; Good!</span>
-					<span id="statuslabelcryptogood1">Your browser can generate cryptographically random keys using window.crypto.getRandomValues</span>
-					<br /><br /><input type="button" value="OK" class="button" id="statusokcryptogood" onclick="document.getElementById('statuscryptogood').style.display = 'none';" />
+				<div class="tooltip" id="usergenbcn-statuscryptogood">
+					<span class="statusgood" id="usergenbcn-statuslabelcryptogood">&#10004; Good!</span>
+					<span id="usergenbcn-statuslabelcryptogood1">Your browser can generate cryptographically random keys using window.crypto.getRandomValues</span>
+					<br /><br /><input type="button" value="OK" class="button" id="usergenbcn-statusokcryptogood" onclick="document.getElementById('usergenbcn-statuscryptogood').style.display = 'none';" />
 				</div>
-				<div class="tooltip" id="statuscryptobad">
-					<span class="statusbad" id="statuslabelcryptobad">&times; Oh no!</span>
-					<span id="statuslabelcryptobad1">Your browser does NOT support window.crypto.getRandomValues. You should use a more modern browser with this generator to increase the security of the keys generated.</span>
-					<br /><br /><input type="button" value="OK" class="button" id="statusokcryptobad" onclick="document.getElementById('statuscryptobad').style.display = 'none';" />
+				<div class="tooltip" id="usergenbcn-statuscryptobad">
+					<span class="statusbad" id="usergenbcn-statuslabelcryptobad">&times; Oh no!</span>
+					<span id="usergenbcn-statuslabelcryptobad1">Your browser does NOT support window.crypto.getRandomValues. You should use a more modern browser with this generator to increase the security of the keys generated.</span>
+					<br /><br /><input type="button" value="OK" class="button" id="usergenbcn-statusokcryptobad" onclick="document.getElementById('usergenbcn-statuscryptobad').style.display = 'none';" />
 				</div>
-				<div class="tooltip" id="statusunittestsgood">
-					<span class="statusgood" id="statuslabelunittestsgood">&#10004; Good!</span>
-					<span id="statuslabelunittestsgood1">All synchronous unit tests passed.</span>
-					<br /><br /><input type="button" value="OK" class="button" id="statusokunittestsgood" onclick="document.getElementById('statusunittestsgood').style.display = 'none';" />
+				<div class="tooltip" id="usergenbcn-statusunittestsgood">
+					<span class="statusgood" id="usergenbcn-statuslabelunittestsgood">&#10004; Good!</span>
+					<span id="usergenbcn-statuslabelunittestsgood1">All synchronous unit tests passed.</span>
+					<br /><br /><input type="button" value="OK" class="button" id="usergenbcn-statusokunittestsgood" onclick="document.getElementById('usergenbcn-statusunittestsgood').style.display = 'none';" />
 				</div>
-				<div class="tooltip" id="statusunittestsbad">
-					<span class="statusbad" id="statuslabelunittestsbad">&times; Oh no!</span>
-					<span id="statuslabelunittestsbad1">Some synchronous unit tests DID NOT pass. You should find another browser to use with this generator.</span>
-					<br /><br /><input type="button" value="OK" class="button" id="statusokunittestsbad" onclick="document.getElementById('statusunittestsbad').style.display = 'none';" />
+				<div class="tooltip" id="usergenbcn-statusunittestsbad">
+					<span class="statusbad" id="usergenbcn-statuslabelunittestsbad">&times; Oh no!</span>
+					<span id="usergenbcn-statuslabelunittestsbad1">Some synchronous unit tests DID NOT pass. You should find another browser to use with this generator.</span>
+					<br /><br /><input type="button" value="OK" class="button" id="usergenbcn-statusokunittestsbad" onclick="document.getElementById('usergenbcn-statusunittestsbad').style.display = 'none';" />
 				</div>
-				<div class="tooltip" id="statusprotocolgood">
-					<span class="statusgood" id="statuslabelprotocolgood">&#10004; Good!</span>
-					<span id="statuslabelprotocolgood1">You are running this generator from your local computer. <br />Tip: Double check you are offline by trying </span>
+				<div class="tooltip" id="usergenbcn-statusprotocolgood">
+					<span class="statusgood" id="usergenbcn-statuslabelprotocolgood">&#10004; Good!</span>
+					<span id="usergenbcn-statuslabelprotocolgood1">You are running this generator from your local computer. <br />Tip: Double check you are offline by trying </span>
 					<a href="http://www.google.com" target="_blank">www.google.com</a>
-					<br /><br /><input type="button" value="OK" class="button" id="statusokprotocolgood" onclick="document.getElementById('statusprotocolgood').style.display = 'none';" />
+					<br /><br /><input type="button" value="OK" class="button" id="usergenbcn-statusokprotocolgood" onclick="document.getElementById('usergenbcn-statusprotocolgood').style.display = 'none';" />
 				</div>
-				<div class="tooltip" id="statusprotocolbad">
-					<span class="statuswarn" id="statuslabelprotocolbad">&#9888; Think twice!</span>
-					<span id="statuslabelprotocolbad1">You appear to be running this generator online from a live website. For valuable wallets it is recommended you clone </span>
-					<a id="statuslabelprotocolbad2" href="https://github.com/bitcoincashnotes/user-generated">https://github.com/bitcoincashnotes/user-generated</a>
-					<span id="statuslabelprotocolbad3"> and run this generator offline as a local html file.</span>
-					<br /><br /><input type="button" value="OK" class="button" id="statusokprotocolbad" onclick="document.getElementById('statusprotocolbad').style.display = 'none';" />
+				<div class="tooltip" id="usergenbcn-statusprotocolbad">
+					<span class="statuswarn" id="usergenbcn-statuslabelprotocolbad">&#9888; Think twice!</span>
+					<span id="usergenbcn-statuslabelprotocolbad1">You appear to be running this generator online from a live website. For valuable wallets it is recommended you clone </span>
+					<a id="usergenbcn-statuslabelprotocolbad2" href="https://github.com/bitcoincashnotes/user-generated">https://github.com/bitcoincashnotes/user-generated</a>
+					<span id="usergenbcn-statuslabelprotocolbad3"> and run this generator offline as a local html file.</span>
+					<br /><br /><input type="button" value="OK" class="button" id="usergenbcn-statusokprotocolbad" onclick="document.getElementById('usergenbcn-statusprotocolbad').style.display = 'none';" />
 				</div>
-				<div class="tooltip" id="statuskeypoolgood">
-					<span id="statuslabelkeypool1">This is a log of all the Bitcoin Cash Addresses and Private Keys you generated during your current session. Reloading the page will create a new session.</span>
-					<textarea rows="20" cols="72" id="keypooltextarea"></textarea>
+				<div class="tooltip" id="usergenbcn-statuskeypoolgood">
+					<span id="usergenbcn-statuslabelkeypool1">This is a log of all the Bitcoin Cash Addresses and Private Keys you generated during your current session. Reloading the page will create a new session.</span>
+					<textarea rows="20" cols="72" id="usergenbcn-keypooltextarea"></textarea>
 					
 					<br /><br />
-					<input type="button" value="Refresh" class="button" id="statuskeypoolrefresh" onclick="ninja.status.showKeyPool();" />
-					<input type="button" value="OK" class="button" id="statusokkeypool" onclick="document.getElementById('statuskeypoolgood').style.display = 'none';" />
+					<input type="button" value="Refresh" class="button" id="usergenbcn-statuskeypoolrefresh" onclick="ninja.status.showKeyPool();" />
+					<input type="button" value="OK" class="button" id="usergenbcn-statusokkeypool" onclick="document.getElementById('usergenbcn-statuskeypoolgood').style.display = 'none';" />
 				</div>
 			</div>
 			<div class="authorbtc">
 				<div>
 					<span class="item">
-						<span class="statusicon" id="statusprotocol" onclick="ninja.status.showProtocol();">...</span>
-						<span class="statusicon" id="statuscrypto" onclick="ninja.status.showCrypto();">...</span>
-						<span class="statusicon" id="statusunittests" onclick="ninja.status.showUnitTests();">...</span>
-						<span class="statusicon" id="statuskeypool" onclick="ninja.status.showKeyPool();">&#8803;</span>
+						<span class="statusicon" id="usergenbcn-statusprotocol" onclick="ninja.status.showProtocol();">...</span>
+						<span class="statusicon" id="usergenbcn-statuscrypto" onclick="ninja.status.showCrypto();">...</span>
+						<span class="statusicon" id="usergenbcn-statusunittests" onclick="ninja.status.showUnitTests();">...</span>
+						<span class="statusicon" id="usergenbcn-statuskeypool" onclick="ninja.status.showKeyPool();">&#8803;</span>
 					</span>
-					<span class="item" id="footerlabeltranslatedby"></span>
+					<span class="item" id="usergenbcn-footerlabeltranslatedby"></span>
 				</div>
 			</div>
 			<div class="github">
-				<span class="item"><a href="https://github.com/bitcoincashnotes/user-generated" target="_blank" id="footerlabelgithub1">Source Code</a></span>
+				<span class="item"><a href="https://github.com/bitcoincashnotes/user-generated" target="_blank" id="usergenbcn-footerlabelgithub1">Source Code</a></span>
 			</div>
 			<div class="copyright">
-				<span id="footerlabelcopyright">All copyrights are included in the source code.</span><br />
-				<span id="footerlabelnowarranty">This software is provided "AS IS", without no warranty of any kind.</span><br />
-				<span id="footerlabelnowarranty2">Please see <a href="https://bitcoincashnotes.com/terms-and-conditions">terms and conditions</a> ("User generated notes" subheading) for more detail.</span><br />
+				<span id="usergenbcn-footerlabelcopyright">All copyrights are included in the source code.</span><br />
+				<span id="usergenbcn-footerlabelnowarranty">This software is provided "AS IS", without no warranty of any kind.</span><br />
+				<span id="usergenbcn-footerlabelnowarranty2">Please see <a href="https://bitcoincashnotes.com/terms-and-conditions">terms and conditions</a> ("User generated notes" subheading) for more detail.</span><br />
 			</div>
 		</div>
 	</div>
