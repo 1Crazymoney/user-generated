@@ -16648,13 +16648,15 @@ ninja.publicKey = {
 		div.setAttribute("class", "seedpoint");
 		div.style.top = y + "px";
 		div.style.left = x + "px";
-		document.body.appendChild(div);
+		var wrapperDocument = document.getElementsByClassName('usergenbcn-body-wrapper')[0];
+		wrapperDocument.appendChild(div);
 		ninja.seeder.seedPoints.push(div);
 	},
 
 	removePoints: function () {
+		var wrapperDocument = document.getElementsByClassName('usergenbcn-body-wrapper')[0];
 		for (var i = 0; i < ninja.seeder.seedPoints.length; i++) {
-			document.body.removeChild(ninja.seeder.seedPoints[i]);
+			wrapperDocument.removeChild(ninja.seeder.seedPoints[i]);
 		}
 		ninja.seeder.seedPoints = [];
 	},
