@@ -79,7 +79,7 @@
     transform: rotate(90deg);
 }
 
-#usergenbcn-paperarea .artwallet .qrprivate-top-text { top: 431px; left: 382px; font-size: 8px; z-index: 99; margin: 0; float: none; display: block; position: absolute;
+#usergenbcn-paperarea .artwallet .qrprivate-top-text { top: 431px; left: 385px; font-size: 7px; z-index: 99; margin: 0; float: none; display: block; position: absolute;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);

@@ -406,11 +406,11 @@ ninja.wallets.paperwallet = {
 			'all-denominations': {
 				english: [
 					{ className: 'crypto-trust', styleChanges: [{ property: 'top', value: '188px' }] },
-					{ className: 'qrprivate-top-text', styleChanges: [{ property: 'left', value: '382px' }] }
+					{ className: 'qrprivate-top-text', styleChanges: [{ property: 'left', value: '385px' }] }
 				],
 				spanish: [
 					{ className: 'crypto-trust', styleChanges: [{ property: 'top', value: '185px' }] },
-					{ className: 'qrprivate-top-text', styleChanges: [{ property: 'left', value: '368px' }] }
+					{ className: 'qrprivate-top-text', styleChanges: [{ property: 'left', value: '373px' }] }
 				],
 			},
 			'1mbch': {
