@@ -176,7 +176,9 @@ ninja.wallets.paperwallet = {
 			"<div class='qrprivate-top-text' id='usergenbcn-qrprivate-top-text-" + i + "'></div>" +
 			"<img id='usergenbcn-bitcoincashlogo" + i + "' class='bitcoincashlogo' src='' />" +
 			"<div class='logo-text' id='usergenbcn-logo-text-" + i + "'></div>" +
+			"<img id='usergenbcn-portraitFrame" + i + "' class='portraitFrame' src='' />" +
 			"<div class='paperface'><img id='usergenbcn-paperface" + i + "' class='paperfaceimage' src='' /></div>" +
+			"<img id='usergenbcn-portraitFrameBack" + i + "' class='portraitFrameBack' src='' />" +
 			"<img id='usergenbcn-numberedDenominationFrontFirst" + i + "' class='numberedDenominationFrontFirst' src='' />" +
 			"<img id='usergenbcn-numberedDenominationFrontSecond" + i + "' class='numberedDenominationFrontSecond' src='' />" +
 			"<img id='usergenbcn-colouredNumberedDenominationFrontFirst" + i + "' class='colouredNumberedDenominationFrontFirst' src='' />" +
@@ -236,10 +238,12 @@ ninja.wallets.paperwallet = {
 		document.getElementById("usergenbcn-paperwalletdenomination").value = '1mbch';
 		document.getElementById("usergenbcn-paperwalletcolor").value = 'Orange';
 		document.getElementById("usergenbcn-faceimagebutton").value = '';
+		document.getElementById('usergenbcn-portraitframe').value = 'regular';
 
 		ninja.wallets.paperwallet.changeLanguage();
 		ninja.wallets.paperwallet.changeDenomination();
 		ninja.wallets.paperwallet.changeColor();
+		ninja.wallets.paperwallet.changePortraitFrame();
 
 		var defaultFaceImage = ninja.images.paperwalletimages()['default']['standardFace'];
 		ninja.wallets.paperwallet.updateImageElements('paperfaceimage', defaultFaceImage);
@@ -369,6 +373,28 @@ ninja.wallets.paperwallet = {
 		ninja.wallets.paperwallet.updateImageElements('wordedDenominationBack', wordedDenominationBack);
 
 		styles = styles.concat(styles, ninja.wallets.paperwallet.getStylesRef(selectedDenomination, language));
+		ninja.wallets.paperwallet.updateStyles(styles);
+	},
+
+	changePortraitFrame: function () {
+		var selectedPortraitFrame = document.getElementById('usergenbcn-portraitframe').value;
+		var portraitFrameImage;
+		var portraitFrameBackImage;
+		var styles = [];
+
+		if (selectedPortraitFrame === 'none') {
+			portraitFrameImage = '';
+			portraitFrameBackImage = '';
+			styles.push({ className: 'portraitFrame', styleChanges: [{ property: 'display', value: 'none' }] });
+			styles.push({ className: 'portraitFrameBack', styleChanges: [{ property: 'display', value: 'none' }] });
+		} else {
+			portraitFrameImage = ninja.images.paperwalletimages()['default']['portraitFrame'][selectedPortraitFrame];
+			portraitFrameBackImage = ninja.images.paperwalletimages()['default']['portraitFrameBack']['lightGrey'];
+			styles.push({ className: 'portraitFrame', styleChanges: [{ property: 'display', value: 'block' }] });
+			styles.push({ className: 'portraitFrameBack', styleChanges: [{ property: 'display', value: 'block' }] });
+		}
+		ninja.wallets.paperwallet.updateImageElements('portraitFrame', portraitFrameImage);
+		ninja.wallets.paperwallet.updateImageElements('portraitFrameBack', portraitFrameBackImage);
 		ninja.wallets.paperwallet.updateStyles(styles);
 	},
 
