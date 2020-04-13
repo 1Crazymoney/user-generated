@@ -193,10 +193,6 @@
 							<option value="Blue">Blue</option>
 							<option value="Gold">Gold</option></select>
 						</div>
-						<span class="print"><input type="button" name="print" value="Print" id="usergenbcn-paperprint" onclick="window.print();" /></span>
-						<span class="publicaddresses"><input type="button" name="publicaddresses" value="Public addresses" id="usergenbcn-publicaddresses" onclick="ninja.wallets.paperwallet.downloadAddressesCsv();" /></span>
-						<div class="help-tip for-publicaddresses"><p>Download a csv of all of the below generated public addresses. The csv can be conveniently used in Electron Cash (Desktop) for bulk sending BCH to these addresses.</p></div>
-						<span class="resetoptions"><input type="button" name="resetoptions" value="Reset options" id="usergenbcn-resetoptions" onclick="ninja.wallets.paperwallet.resetOptions();" /></span>
 						<div class="commandoption"><label id="usergenbcn-faceimage" for="faceimagebutton">Face image:</label> <input type="file" name="faceimagebutton" value="Select image" id="usergenbcn-faceimagebutton" onchange="ninja.wallets.paperwallet.inputNewFace(this);" /></div>
 						<div class="help-tip for-faceimage"><p>For the best results, use a .png image with a transparent background. Ideal dimensions are: width 190px, height 152px.</p></div>
 						<div class="commandoption"><label>Portrait frame:</label> <select id="usergenbcn-portraitframe" onchange="ninja.wallets.paperwallet.changePortraitFrame();">
@@ -204,6 +200,12 @@
 							<option value="regular">Regular</option>
 							<option value="wide">Wide</option></select>
 						</div>
+						<div class="commandoption">
+							<span class="resetoptions"><input type="button" name="resetoptions" value="Reset options" id="usergenbcn-resetoptions" onclick="ninja.wallets.paperwallet.resetOptions();" /></span>
+							<span class="print"><input type="button" name="print" value="Print" id="usergenbcn-paperprint" onclick="window.print();" /></span>
+							<span class="publicaddresses"><input type="button" name="publicaddresses" value="Public addresses" id="usergenbcn-publicaddresses" onclick="ninja.wallets.paperwallet.downloadAddressesCsv();" /></span>
+						</div>
+						<div class="help-tip for-publicaddresses"><p>Download a csv of all of the below generated public addresses. The csv can be conveniently used in Electron Cash (Desktop) for bulk sending BCH to these addresses.</p></div>
 					</div>
 				</div>
 				<div id="usergenbcn-paperkeyarea"></div>

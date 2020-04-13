@@ -32,7 +32,7 @@
 #usergenbcn-seedpoolarea { display: none; }
 #usergenbcn-seedpooldisplay {  font-family: monospace; font-size: 1em; width: 100%; padding: 5px 5px; word-wrap: break-word; }
 .usergenbcn-body-wrapper .seedpoint { width: 20px; height: 9px; display: block; border-radius: 3px; position: fixed; z-index: 5000; background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJEAYAAABiUdALAAACAklEQVQ4y62UTUhUURiGn3tNCzX6c8QMq030R20CceOiCJxqlUFC7VpYoWaLFjFDbkKjxAgtkFqFtBMJArFFUUxECS4KYgYiypmRxElqMc70I3NbvOeEJ+6igc7mubzn+3nvud+53revgzfq68eSBACJW9jlATSM6Gn1DkLX4jAQQH5ScQ0jKzYDmO+RXntU0qYLIUUC+PFe/ed73P6tF1f9Mebjwd172t21JCYrTfgnt+aT6+LVpEqNjpm80RVBHqSMfv6leOm0eKzfjSskZGj3CUnpKCU587Vh3zBmjCSGwk+skBC7e8Xxg2qx8TPgsabvMgD+zIz7oo8GjcErbh27qlvdvl3n5Ktqj+8efX+TWBcPN/isKLbnTFwz4FH54APgs3a6BahgQ1+3jKdqFFfb5uY9bg+vv3VKvH1H3HzTp6yVnRW3TTkz9LPrNR4V1KWfAiUK+84CPutjGTff5uUG/rVjmQYb34izUVdf3ktAiWL1K8CjKpMGAvLRcTfO5kViZRpcHDYz8k6c2xIefqhDnIiIS2/F7xFgmWz8IxBQbO4AAn51drozZ/PaJsLrfzGXZ2C79eXrruQnJQztFw+/CC9gh/natHjkvrhwQAd5PKdP3rtTemqdGH1oGje5df6+fC1mRuMZ68v7v//BxlPmw8xJzz6XXnPGXKqT5f4HfwM2rKp93XU/3wAAAABJRU5ErkJggg=='); }
-#usergenbcn-generate { display: none; font-family: monospace; font-size: 1.25em; height: 355px; text-align: left; position: relative; padding: 20px 10px; clear: both; }
+#usergenbcn-generate { display: none; font-family: monospace; font-size: 1.25em; text-align: left; position: relative; padding: 20px 10px; clear: both; }
 #usergenbcn-generate span { padding: 5px 5px 0 5px; }
 #usergenbcn-generatekeyinput { position: relative; z-index: 20; display: block; width: 100%; margin-top: 5px; }
 #usergenbcn-keyarea .pubaddress { float: none; display: block; padding: 0; height: auto; }
@@ -47,7 +47,7 @@
 #usergenbcn-singleshare { position: relative; top: -110px; float: left; left: 160px; color: #4cca47; font-weight: bolder; font-size: 200%;  }
 #usergenbcn-singlesafety { text-align: left; padding: 5px; border-top: 2px solid #4cca47; position: relative; }
 
-#usergenbcn-main { position: relative; text-align: center; margin: 20px auto; padding: 15px 20px; width: 495px; background-color: #ffffff; border-top: 2px solid #f08b16;}
+#usergenbcn-main { position: relative; margin: 20px auto; padding: 15px 20px; background-color: #ffffff; border-top: 2px solid #f08b16;}
 #usergenbcn-logo { width: 578px; height: 80px; }
         
 #usergenbcn-paperarea { min-height: 120px; display: none; }
@@ -290,13 +290,10 @@
     .usergenbcn-body-wrapper .commands { border-bottom: 2px solid #f08b16; padding: 10px 2px; }
     .usergenbcn-body-wrapper .commands .row { padding: 0 0; text-align: left; } 
     .usergenbcn-body-wrapper .commands .row.extra { padding-top: 6px; }
-    .usergenbcn-body-wrapper .commands span { padding: 0 10px; }
-    .usergenbcn-body-wrapper .commands span.print { top: 60px; float: right; position: relative; z-index: 20; }
-    .usergenbcn-body-wrapper .commands span.resetoptions { top: 60px; float: right; position: relative; z-index: 20; }
-    .usergenbcn-body-wrapper .commands span.publicaddresses { top: 60px; float: right; position: relative; z-index: 20; }
+    .usergenbcn-body-wrapper .commands span { padding: 0 10px 0 0; }
     .usergenbcn-body-wrapper .commands span.right { float: right; }
     .usergenbcn-body-wrapper .expandable { padding: 10px 15px; text-align: left; cursor: pointer; }
-    .usergenbcn-body-wrapper .commandoption { padding-bottom: 10px; }
+    .usergenbcn-body-wrapper .commandoption { padding-bottom: 10px; white-space: nowrap; }
 
     #usergenbcn-menu { visibility: visible; font-size: 90%; }
     #usergenbcn-culturemenu { display: none; text-align: center; padding: 0 10px 5px 10px; margin-bottom: 3px; font-size: 90%; }
@@ -322,7 +319,7 @@
     .usergenbcn-body-wrapper .footer .authorbtc div { position: relative; z-index: 100; }
     .usergenbcn-body-wrapper .footer .github { position: relative; }
     .usergenbcn-body-wrapper .footer .github span.item { text-align: right; display: block; padding: 0 20px; }
-    .usergenbcn-body-wrapper .footer .copyright { font-size: 80%; clear: both; padding: 20px 0 0 0; }
+    .usergenbcn-body-wrapper .footer .copyright { font-size: 80%; clear: both; padding: 20px 0 0 0; text-align: center; }
     .usergenbcn-body-wrapper .footer .copyright span { padding: 10px 2px; }
     .usergenbcn-body-wrapper .footer .tooltip { display: none; text-align: left; border: 2px solid #f08b16; background-color: #FFFFF6; margin: 5px; padding: 10px; top: 0px; position: relative;  }
     .usergenbcn-body-wrapper .footer .statusgood { color: #f08b16; font-weight: bold; }
@@ -349,11 +346,11 @@
     #usergenbcn-seedpoolarea { display: none; }
     .usergenbcn-body-wrapper .faq { display: none; }
 }
-.usergenbcn-body-wrapper .help-tip { position: absolute;  text-align: center; background-color: #f08b16; border-radius: 50%; width: 14px; height: 14px; font-size: 10px; line-height: 14px; cursor: default; z-index: 200; }
-.usergenbcn-body-wrapper .help-tip.for-faceimage { top: 114px; left: 113px; }
-.usergenbcn-body-wrapper .help-tip.for-publicaddresses { top: 154px; left: 340px; }
+.usergenbcn-body-wrapper .help-tip { position: absolute;  text-align: center; background-color: #f08b16; border-radius: 50%; width: 14px; height: 14px; font-size: 10px; line-height: 14px; cursor: default; }
+.usergenbcn-body-wrapper .help-tip.for-faceimage { top: 100px; left: 190px; }
+.usergenbcn-body-wrapper .help-tip.for-publicaddresses { top: 160px; left: 285px; }
 .usergenbcn-body-wrapper .help-tip:before { content: '?'; font-weight: bold; color: #fff; }
 .usergenbcn-body-wrapper .help-tip:hover p { display: block; transform-origin: 100% 0%; }
-.usergenbcn-body-wrapper .help-tip p { display: none; text-align: left; background-color: #1E2021; padding: 10px; width: 150px; position: absolute; border-radius: 3px; box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); right: -100px; color: #FFF; font-size: 13px; line-height: 1.4; opacity: 0.9; }
+.usergenbcn-body-wrapper .help-tip p { display: none; text-align: left; background-color: #1E2021; padding: 10px; width: 150px; position: absolute; border-radius: 3px; box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); right: -100px; color: #FFF; font-size: 13px; line-height: 1.4; opacity: 0.9; white-space: normal; z-index: 200; }
 .usergenbcn-body-wrapper .help-tip p:before { position: absolute; content: ''; width: 0; height: 0; border: 6px solid transparent; border-bottom-color: #1E2021; right: 101px; top: -12px; }
 .usergenbcn-body-wrapper .help-tip p:after { width: 100%; height: 40px; content: ''; position: absolute; top: -40px; left: 0; }
