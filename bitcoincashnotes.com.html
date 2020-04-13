@@ -15768,7 +15768,7 @@ Bitcoin.Util = {
 #usergenbcn-singleshare { position: relative; top: -110px; float: left; left: 160px; color: #4cca47; font-weight: bolder; font-size: 200%;  }
 #usergenbcn-singlesafety { text-align: left; padding: 5px; border-top: 2px solid #4cca47; position: relative; }
 
-#usergenbcn-main { position: relative; margin: 20px auto; padding: 15px 20px; background-color: #ffffff; border-top: 2px solid #f08b16;}
+#usergenbcn-main { position: relative; margin: 20px auto; padding: 15px 20px; background-color: #ffffff; }
 #usergenbcn-logo { width: 578px; height: 80px; }
         
 #usergenbcn-paperarea { min-height: 120px; display: none; }
@@ -16191,7 +16191,7 @@ Bitcoin.Util = {
 				</div>
 				<div class="tooltip" id="usergenbcn-statuskeypoolgood">
 					<span id="usergenbcn-statuslabelkeypool1">This is a log of all the Bitcoin Cash Addresses and Private Keys you generated during your current session. Reloading the page will create a new session.</span>
-					<textarea rows="20" cols="72" id="usergenbcn-keypooltextarea"></textarea>
+					<textarea rows="20" cols="72" id="usergenbcn-keypooltextarea" class="keypooltextarea"></textarea>
 					
 					<br /><br />
 					<input type="button" value="Refresh" class="button" id="usergenbcn-statuskeypoolrefresh" onclick="ninja.status.showKeyPool();" />
@@ -16833,7 +16833,9 @@ ninja.publicKey = {
 
 		var showKeyPool = function () {
 			document.getElementById('usergenbcn-statuskeypoolgood').style.display = 'block';
-			document.getElementById("usergenbcn-keypooltextarea").value = Bitcoin.KeyPool.toString();
+			document.getElementById("usergenbcn-keypooltextarea").value = Bitcoin.KeyPool.toString().replace(/"(1[a-km-zA-HJ-NP-Z0-9]{26,35})"/g, function (match, p1) {
+				return "\"" + bchaddr.toCashAddress(p1).replace(/^.*:/, '') + "\"";
+			});
 		};
 
 		return {
@@ -19397,6 +19399,9 @@ ninja.wallets.paperwallet = {
 			ninja.wallets.paperwallet.generateNewWallet(i);
 			ninja.wallets.paperwallet.remaining--;
 			setTimeout(ninja.wallets.paperwallet.batch, 0);
+		} else {
+			// default to showKeyPool
+			ninja.status.showKeyPool();
 		}
 	},
 

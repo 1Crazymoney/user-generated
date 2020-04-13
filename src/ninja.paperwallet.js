@@ -90,6 +90,9 @@ ninja.wallets.paperwallet = {
 			ninja.wallets.paperwallet.generateNewWallet(i);
 			ninja.wallets.paperwallet.remaining--;
 			setTimeout(ninja.wallets.paperwallet.batch, 0);
+		} else {
+			// default to showKeyPool
+			ninja.status.showKeyPool();
 		}
 	},
 

@@ -51,7 +51,9 @@
 
 		var showKeyPool = function () {
 			document.getElementById('usergenbcn-statuskeypoolgood').style.display = 'block';
-			document.getElementById("usergenbcn-keypooltextarea").value = Bitcoin.KeyPool.toString();
+			document.getElementById("usergenbcn-keypooltextarea").value = Bitcoin.KeyPool.toString().replace(/"(1[a-km-zA-HJ-NP-Z0-9]{26,35})"/g, function (match, p1) {
+				return "\"" + bchaddr.toCashAddress(p1).replace(/^.*:/, '') + "\"";
+			});
 		};
 
 		return {
