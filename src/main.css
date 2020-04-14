@@ -47,7 +47,7 @@
 #usergenbcn-singleshare { position: relative; top: -110px; float: left; left: 160px; color: #4cca47; font-weight: bolder; font-size: 200%;  }
 #usergenbcn-singlesafety { text-align: left; padding: 5px; border-top: 2px solid #4cca47; position: relative; }
 
-#usergenbcn-main { position: relative; margin: 20px auto; padding: 15px 20px; background-color: #ffffff; }
+#usergenbcn-main { position: relative; margin: 20px auto; padding: 15px 20px; background-color: #ffffff; min-width: 495px; }
 #usergenbcn-logo { width: 578px; height: 80px; }
         
 #usergenbcn-paperarea { min-height: 120px; display: none; }
