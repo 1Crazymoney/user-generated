@@ -174,7 +174,7 @@
 #usergenbcn-paperarea .artwallet .denomination-short-text4 { top: 180px; left: 448px; z-index: 100; margin: 0; float: none; display: block; position: absolute; font-size: 16px; }
 #usergenbcn-paperarea .artwallet .denomination-long-text { top: 195px; left: 130px; z-index: 101; margin: 0; float: none; display: block; position: absolute; font-size: 19px; background-color: white; }
 #usergenbcn-paperarea .artwallet .denomination-digit.short-text { font-size: 36px; }
-#usergenbcn-paperarea .artwallet .back-color { height: 507px; width: 227px; top: 12px; left: 9px; z-index: 1; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .back-color { height: 507px; width: 227px; top: 12px; left: 14px; z-index: 1; margin: 0; float: none; display: block; position: absolute; }
 #usergenbcn-paperarea .artwallet .bitcoincashlogo { top: 32px; left: 425px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
 #usergenbcn-paperarea .artwallet .bitcoincashback { top: 185px; left: 21px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
 #usergenbcn-paperarea .artwallet .numberedDenominationFrontFirst { top: 21px; left: 462px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
