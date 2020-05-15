@@ -56,7 +56,7 @@
 #usergenbcn-paperarea .artwallet { height: 818px; }
 
 #usergenbcn-paperarea .artwallet .papersvg { border: 0; margin: 0; padding: 0; left: 0; top: 0; z-index: 10; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .copyright { top: 20px; font-size: 8px; width: 110px; font-family: monospace; left: 307px; z-index: 100; margin: 0; float: none; display: block; position: absolute;
+#usergenbcn-paperarea .artwallet .copyright { top: 20px; font-size: 8px; width: 110px; font-family: monospace; left: 307px; z-index: 100; margin: 0; float: none; display: block; position: absolute; color: #000000;
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);
@@ -145,7 +145,7 @@
     transform: rotate(90deg);
 }
 #usergenbcn-paperarea .artwallet .crypto-trust { left: 36px; font-size: 10px; font-weight: bold; top: 188px; z-index: 110; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .header-text { top: 260px; z-index: 130; margin: 0; float: none; display: block; position: absolute; text-align: center; width: 400px;
+#usergenbcn-paperarea .artwallet .header-text { top: 260px; z-index: 130; margin: 0; float: none; display: block; position: absolute; text-align: center; width: 400px; color: #000000;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
