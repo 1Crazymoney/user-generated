@@ -47,7 +47,7 @@
 #usergenbcn-singleshare { position: relative; top: -110px; float: left; left: 160px; color: #4cca47; font-weight: bolder; font-size: 200%;  }
 #usergenbcn-singlesafety { text-align: left; padding: 5px; border-top: 2px solid #4cca47; position: relative; }
 
-#usergenbcn-main { position: relative; margin: 20px auto; padding: 15px 20px; background-color: #ffffff; min-width: 495px; }
+#usergenbcn-main { position: relative; margin: 20px auto; padding: 15px 20px; background-color: #ffffff; min-width: 507px; }
 #usergenbcn-logo { width: 578px; height: 80px; }
         
 #usergenbcn-paperarea { min-height: 120px; display: none; }
@@ -56,7 +56,7 @@
 #usergenbcn-paperarea .artwallet { height: 818px; }
 
 #usergenbcn-paperarea .artwallet .papersvg { border: 0; margin: 0; padding: 0; left: 0; top: 0; z-index: 10; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .copyright { top: 20px; font-size: 8px; width: 110px; font-family: monospace; left: 300px; z-index: 100; margin: 0; float: none; display: block; position: absolute;
+#usergenbcn-paperarea .artwallet .copyright { top: 20px; font-size: 8px; width: 110px; font-family: monospace; left: 307px; z-index: 100; margin: 0; float: none; display: block; position: absolute;
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);
@@ -64,22 +64,14 @@
     transform: rotate(180deg);
 }
 #usergenbcn-paperarea .artwallet .copyright .copy-symbol { font-family: sans-serif; }
-#usergenbcn-paperarea .artwallet .qrcode_public { top: 45px; left: 316px; z-index: 100; margin: 0; float: none; display: block; position: absolute; background-color: #FFFFFF;
+#usergenbcn-paperarea .artwallet .qrcode_public { top: 45px; left: 323px; z-index: 100; margin: 0; float: none; display: block; position: absolute;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-#usergenbcn-paperarea .artwallet .qrcode_private { top: 397px; left: 332px; z-index: 100; margin: 0; float: none; display: block; position: absolute; background-color: #FFFFFF;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-
-#usergenbcn-paperarea .artwallet .qrprivate-top-text { top: 431px; left: 359.5px; width: 100px; text-align: center; font-size: 7px; z-index: 99; margin: 0; float: none; display: block; position: absolute;
+#usergenbcn-paperarea .artwallet .qrcode_private { top: 397px; left: 339px; z-index: 100; margin: 0; float: none; display: block; position: absolute;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -87,16 +79,16 @@
     transform: rotate(90deg);
 }
 
-#usergenbcn-paperarea .artwallet .btcaddress { position: absolute; width: 110px; top: 88px; z-index: 100; font-size: 10px; background-color: transparent; font-weight: bold; color: #000000; margin: 0;
+#usergenbcn-paperarea .artwallet .btcaddress { position: absolute; width: 110px; top: 90px; z-index: 100; font-size: 10px; background-color: transparent; font-weight: bold; color: #000000; margin: 0;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-#usergenbcn-paperarea .artwallet .btcaddress.first { left: 255px; }
-#usergenbcn-paperarea .artwallet .btcaddress.second { left: 245px; }
-#usergenbcn-paperarea .artwallet .btcaddress-last4 { position: absolute; width: 40px; top: 633px; left: 69px; z-index: 100; font-size: 11px; background-color: transparent; font-weight: normal; color: #000000; margin: 0;
+#usergenbcn-paperarea .artwallet .btcaddress.first { left: 262px; }
+#usergenbcn-paperarea .artwallet .btcaddress.second { left: 252px; }
+#usergenbcn-paperarea .artwallet .btcaddress-last4 { position: absolute; width: 40px; top: 633px; left: 73px; z-index: 100; font-size: 11px; background-color: transparent; font-weight: normal; color: #000000; margin: 0;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
@@ -110,12 +102,12 @@
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
-#usergenbcn-paperarea .artwallet .btcprivwif.first { left: 58px; }
-#usergenbcn-paperarea .artwallet .btcprivwif.second { left: 70px; }
-#usergenbcn-paperarea .artwallet .btcprivwif.third { left: 83px; }
-#usergenbcn-paperarea .artwallet .btcprivwif.fourth { left: 94px; }
-#usergenbcn-paperarea .artwallet .btcprivwif.fifth { left: 106px; }
-#usergenbcn-paperarea .artwallet .btcprivwif.sixth { left: 118px; }
+#usergenbcn-paperarea .artwallet .btcprivwif.first { left: 62px; }
+#usergenbcn-paperarea .artwallet .btcprivwif.second { left: 74px; }
+#usergenbcn-paperarea .artwallet .btcprivwif.third { left: 87px; }
+#usergenbcn-paperarea .artwallet .btcprivwif.fourth { left: 98px; }
+#usergenbcn-paperarea .artwallet .btcprivwif.fifth { left: 110px; }
+#usergenbcn-paperarea .artwallet .btcprivwif.sixth { left: 122px; }
 #usergenbcn-paperarea .artwallet .btcencryptedkey { position: absolute; top: 174px; left: 332px; z-index: 100; font-size: 8px; background-color: transparent;font-weight: bold; color: #000000; margin: 0;  
     -webkit-transform-origin:top left; -webkit-transform:rotate(-90deg);
     -moz-transform-origin:top left;    -moz-transform:rotate(-90deg);
@@ -123,21 +115,21 @@
     -o-transform-origin:top left;      -o-transform:rotate(-90deg);
     transform-origin:top left;         transform:rotate(-90deg);
 }
-#usergenbcn-paperarea .artwallet .portraitFrame { top: 186px; left: 244px; z-index: 120; margin: 0; float: none; display: block; position: absolute; height: 154px; width: 228px;
+#usergenbcn-paperarea .artwallet .portraitFrame { top: 186px; left: 251px; z-index: 120; margin: 0; float: none; display: block; position: absolute; height: 154px; width: 228px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-#usergenbcn-paperarea .artwallet .portraitFrameBack { top: 186px; left: 262px; z-index: 90; margin: 0; float: none; display: block; position: absolute; height: 152px; width: 190px;
+#usergenbcn-paperarea .artwallet .portraitFrameBack { top: 186px; left: 269px; z-index: 90; margin: 0; float: none; display: block; position: absolute; height: 152px; width: 190px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-#usergenbcn-paperarea .artwallet .paperface { top: 186px; left: 262px; z-index: 100; margin: 0; float: none; display: flex; position: absolute; height: 152px; width: 190px;
+#usergenbcn-paperarea .artwallet .paperface { top: 186px; left: 269px; z-index: 100; margin: 0; float: none; display: flex; position: absolute; height: 152px; width: 190px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -145,25 +137,25 @@
     transform: rotate(90deg);
 }
 #usergenbcn-paperarea .artwallet .paperface .paperfaceimage { max-height: 152px; max-width: 190px; display: block; margin: auto; }
-#usergenbcn-paperarea .artwallet .logo-text { left: 361px; font-size: 6.5px; top: 117px; z-index: 110; margin: 0; float: none; display: block; position: absolute; width: 120px; text-align: center;
+#usergenbcn-paperarea .artwallet .logo-text { left: 368px; font-size: 6.5px; top: 117px; z-index: 110; margin: 0; float: none; display: block; position: absolute; width: 120px; text-align: center;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-#usergenbcn-paperarea .artwallet .crypto-trust { left: 32px; font-size: 10px; font-weight: bold; top: 188px; z-index: 110; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .header-text { top: 260px; z-index: 100; margin: 0; float: none; display: block; position: absolute; text-align: center; width: 400px;
+#usergenbcn-paperarea .artwallet .crypto-trust { left: 36px; font-size: 10px; font-weight: bold; top: 188px; z-index: 110; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .header-text { top: 260px; z-index: 130; margin: 0; float: none; display: block; position: absolute; text-align: center; width: 400px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-#usergenbcn-paperarea .artwallet .header-text.warning { left: 253px; font-size: 8px; }
-#usergenbcn-paperarea .artwallet .header-text.learn { left: 246px; font-size: 8px; }
+#usergenbcn-paperarea .artwallet .header-text.warning { left: 265px; font-size: 8px; }
+#usergenbcn-paperarea .artwallet .header-text.learn { left: 256px; font-size: 11px; }
 #usergenbcn-paperarea .artwallet .header-text.learn span { font-weight: bold; }
-#usergenbcn-paperarea .artwallet .header-text.revolution { left: 238px; font-size: 10px; color: #f08b16; font-weight: bold; }
+#usergenbcn-paperarea .artwallet .header-text.revolution { left: 246px; font-size: 10px; color: #f08b16; font-weight: bold; }
 #usergenbcn-paperarea .artwallet .private-key-cover-text { position: absolute; text-align: center; width: 100px; top: 614px; z-index: 100; font-size: 10px; background-color: transparent; font-weight:normal; color: #000000; margin: 0;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
@@ -171,11 +163,11 @@
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
-#usergenbcn-paperarea .artwallet .private-key-cover-text.private-key { left: 51px; }
-#usergenbcn-paperarea .artwallet .private-key-cover-text.underneath { left: 61px; }
-#usergenbcn-paperarea .artwallet .private-key-cover-text.keep { left: 76px; font-size: 14px; }
-#usergenbcn-paperarea .artwallet .private-key-cover-text.secret { left: 90px; font-size: 14px; }
-#usergenbcn-paperarea .artwallet .open-here { position: absolute; text-align: center; width: 100px; left: 73px; top: 679px; z-index: 100; font-size: 10px; font-family: monospace; background-color: transparent; font-weight:normal; color: #000000; margin: 0;}
+#usergenbcn-paperarea .artwallet .private-key-cover-text.private-key { left: 55px; }
+#usergenbcn-paperarea .artwallet .private-key-cover-text.underneath { left: 65px; }
+#usergenbcn-paperarea .artwallet .private-key-cover-text.keep { left: 80px; font-size: 14px; }
+#usergenbcn-paperarea .artwallet .private-key-cover-text.secret { left: 94px; font-size: 14px; }
+#usergenbcn-paperarea .artwallet .open-here { position: absolute; text-align: center; width: 100px; left: 77px; top: 679px; z-index: 100; font-size: 10px; font-family: monospace; background-color: transparent; font-weight:normal; color: #000000; margin: 0;}
 #usergenbcn-paperarea .artwallet .denomination-short-text1 { top: 15px; left: 20px; z-index: 100; margin: 0; float: none; display: block; position: absolute; font-size: 16px; }
 #usergenbcn-paperarea .artwallet .denomination-short-text2 { top: 15px; left: 420px; z-index: 100; margin: 0; float: none; display: block; position: absolute; font-size: 16px; }
 #usergenbcn-paperarea .artwallet .denomination-short-text3 { top: 180px; left: 38px; z-index: 100; margin: 0; float: none; display: block; position: absolute; font-size: 16px; }
@@ -183,16 +175,16 @@
 #usergenbcn-paperarea .artwallet .denomination-long-text { top: 195px; left: 130px; z-index: 101; margin: 0; float: none; display: block; position: absolute; font-size: 19px; background-color: white; }
 #usergenbcn-paperarea .artwallet .denomination-digit.short-text { font-size: 36px; }
 #usergenbcn-paperarea .artwallet .back-color { height: 507px; width: 227px; top: 12px; left: 9px; z-index: 1; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .bitcoincashlogo { top: 32px; left: 418px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .bitcoincashback { top: 185px; left: 17px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .numberedDenominationFrontFirst { top: 21px; left: 450px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .numberedDenominationFrontSecond { top: 430px; left: 450px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .colouredNumberedDenominationFrontFirst { top: 21px; left: 263px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .colouredNumberedDenominationFrontSecond { top: 441px; left: 263px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .wordedDenominationFront { top: 80px; left: 264px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .milliBitcoinCashFront { top: 250px; left: 264px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .wordedDenominationBack { top: 358px; left: 205px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
-#usergenbcn-paperarea .artwallet .milliBitcoinCashBack { top: 130px; left: 205px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .bitcoincashlogo { top: 32px; left: 425px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .bitcoincashback { top: 185px; left: 21px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .numberedDenominationFrontFirst { top: 21px; left: 462px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .numberedDenominationFrontSecond { top: 430px; left: 462px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .colouredNumberedDenominationFrontFirst { top: 21px; left: 270px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .colouredNumberedDenominationFrontSecond { top: 441px; left: 270px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .wordedDenominationFront { top: 80px; left: 271px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .milliBitcoinCashFront { top: 250px; left: 271px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .wordedDenominationBack { top: 358px; left: 209px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
+#usergenbcn-paperarea .artwallet .milliBitcoinCashBack { top: 130px; left: 209px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
 #usergenbcn-paperarea .artwallet .numberedDenominationBackFirst { top: 25px; left: 18px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
 #usergenbcn-paperarea .artwallet .numberedDenominationBackSecond { top: 425px; left: 18px; z-index: 100; margin: 0; float: none; display: block; position: absolute; }
 #usergenbcn-bulkarea .body { padding: 5px 0 0 0; }

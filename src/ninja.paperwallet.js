@@ -176,7 +176,6 @@ ninja.wallets.paperwallet = {
 			"<div class='header-text warning' id='usergenbcn-warning-text-" + i + "'></div>" +
 			"<div class='header-text learn' id='usergenbcn-learn-text-" + i + "'></div>" +
 			"<div class='header-text revolution' id='usergenbcn-revolution-text-" + i + "'></div>" +
-			"<div class='qrprivate-top-text' id='usergenbcn-qrprivate-top-text-" + i + "'></div>" +
 			"<img id='usergenbcn-bitcoincashlogo" + i + "' class='bitcoincashlogo' src='' />" +
 			"<div class='logo-text' id='usergenbcn-logo-text-" + i + "'></div>" +
 			"<img id='usergenbcn-portraitFrame" + i + "' class='portraitFrame' src='' />" +
@@ -348,9 +347,6 @@ ninja.wallets.paperwallet = {
 		ninja.wallets.paperwallet.updateTextElements('header-text warning', headerTextWarning);
 		ninja.wallets.paperwallet.updateTextElements('header-text learn', headerTextLearn);
 		ninja.wallets.paperwallet.updateTextElements('header-text revolution', headerTextRevolution);
-
-		var qrPrivateTopText = ninja.wallets.paperwallet.getTranslations()[language]['qrprivate-top-text'];
-		ninja.wallets.paperwallet.updateTextElements('qrprivate-top-text', qrPrivateTopText);
 
 		var cryptoTrustImage = ninja.images.paperwalletimages()['default']['cryptoTrust'][language];
 		ninja.wallets.paperwallet.updateImageElements('crypto-trust', cryptoTrustImage);
@@ -571,11 +567,10 @@ ninja.wallets.paperwallet = {
 		var translations = {
 			english: {
 				'logo-text': 'peer-to-peer electronic cash',
-				'qrprivate-top-text': 'SWEEP FUNDS',
 				'open-here': 'OPEN HERE',
 				'header-text': {
 					'warning': 'Warning: This note is insecure, use it at your own risk.',
-					'learn': 'Learn how to use Bitcoin Cash: <span>bitcoincashnotes.com/instructions</span>',
+					'learn': 'Collect the funds: <span>bitcoincashnotes.com/instructions</span>',
 					'revolution': 'The revolution will not be centralized'
 				},
 				'private-key-cover-text': {
@@ -587,11 +582,10 @@ ninja.wallets.paperwallet = {
 			},
 			spanish: {
 				'logo-text': 'peer-to-peer dinero electrónico',
-				'qrprivate-top-text': 'FONDOS DE BARRIDO',
 				'open-here': 'ABRIR AQUÍ',
 				'header-text': {
 					'warning': 'Advertencia: esta nota es insegura, úsela bajo su propio riesgo.',
-					'learn': 'Aprende a usar Bitcoin Cash: <span>bitcoincashnotes.com/instrucciones</span>',
+					'learn': 'Recoger los fondos: <span>bitcoincashnotes.com/instrucciones</span>',
 					'revolution': 'La revolución no será centralizada'
 				},
 				'private-key-cover-text': {
